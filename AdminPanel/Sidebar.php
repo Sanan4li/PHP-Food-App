@@ -17,72 +17,37 @@ function DisplaySideBar($One, $Two, $Three, $Four, $Four2, $Five, $Six, $Seven, 
                       </a>
                   </li>
 
-                  <li class="sub-menu">
-                      <a class="'.$Two.' href="javascript:;" >
-                          <i class="glyphicon glyphicon-random"></i>
-                          <span>Orders</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="NewOrders.php">New Orders</a></li>
-                          <li><a  href="OrdersInProgress.php">In Progress</a></li>
-                          <li><a  href="OrdersDelivered.php">Delivered</a></li>
-                      </ul>
-                  </li>
-                 
-                 
                   <li class="my">
-                  <a class="'.$Three.'" href="AllCustomers.php">
-                      <i class="glyphicon glyphicon-user"></i>
-                      <span>Customers</span>
-                  </a>
-              </li>
-
-              <li class="sub-menu">
-              <a class="'.$Eight.' href="javascript:;" >
-              <i class="fa fa-users"></i>
-                  <span>Employees</span>
-              </a>
-              <ul class="sub">
-                  <li><a  href="AddEmployee.php">Add New</a></li>
-                  <li><a  href="AllEmployees.php">All Employees</a></li>
+                      <a class="'.$Four.'" href="AllProducts.php">
+                      <i class="fa fa-th"></i>
+                          <span>Products</span>
+                      </a>
+                  </li> 
                   
-              </ul>
-          </li>
+                  <li class="my">
+                      <a class="'.$Four2.'" href="AllCategories.php">
+                      <i class="glyphicon glyphicon-th-large"></i>
+                      <span>Categories</span>
+                      </a>
+                  </li>
+
+                 
+                 
+                 
+                 
 
 
 
              
 
 
-                  <li class="sub-menu">
-                      <a class="'.$Four.' href="javascript:;" >
-                          <i class="fa fa-th"></i>
-                          <span>Products</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="AddProduct.php">Add New</a></li>
-                          <li><a  href="AllProducts.php">All Products</a></li>
-                          
-                         
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                  <a class="'.$Four2.' href="javascript:;" >
-                      <i class="glyphicon glyphicon-th-large"></i>
-                      <span>Categories</span>
-                  </a>
-                  <ul class="sub">
-                      <li><a  href="AddCategory.php">Add New</a></li>
-                      <li><a  href="AllCategories.php">All Categories</a></li>
-                      
-                     
-                  </ul>
-              </li>
+                  
+                  
                   
               <li class="my">
-              <a class="'.$Five.'" href="LowStock.php">
-                  <i class="fa fa-warning"></i>
-                  <span>Low Stock</span>
+              <a class="'.$Five.'" href="AllRecipes.php">
+                  <i class="glyphicon glyphicon-cutlery"></i>
+                  <span>Recipes</span>
               </a>
           </li>
                   

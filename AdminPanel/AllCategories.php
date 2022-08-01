@@ -82,16 +82,15 @@
               ?>
 
         <h3 style="text-align:center;">All Categories</h3>
-                <form class="form form-inline" action="SearchCustomer.php" method="post">
+                <form class="form  flex justify-between items-end" action="SearchCustomer.php" method="post">
                       <div class="input-group">
                       <label for="Search">Enter Something to Search</label>
                       <input type="text" id="search" name="SearchCustomer" placeholder="Enter..." class="form-control">
-                    
                       </div>
-                    
-		  		    
-		  		    
-		  		</form>
+                      <div>
+                        <a href="AddCategory.php" class="logout topLogout">Add Category </a>
+                      </div>
+		  		      </form>
 
 
 		  	<div class="row mt">
@@ -126,7 +125,7 @@
                                   
                                   
                                   <td class="numeric">'.$Data["Name"].'</td>
-                                  <td class="numeric">'.$Data["Description"].'</td>
+                                  <td class="numeric col-md-10">'.$Data["Description"].'</td>
                                   
                                        
                                        <td>

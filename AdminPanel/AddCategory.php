@@ -33,11 +33,11 @@
 				</div>
 				<div class="form-row">
 						<label for="Image">Image</label>
-						<input type="file" placeholder="Upload Image" name="Image" id="Image">
+						<input type="file" placeholder="Upload Image" class="input-text" name="Image" id="Image">
 				</div>
 				<div class="form-row">
-						<label for="Icon">Category Icon</label>
-						<input type="file" placeholder="Upload Icon for categroy" name="Icon" id="Icon">
+						<label for="Icon">Brand Icon</label>
+						<input type="file" placeholder="Upload Icon for category" class="input-text" name="Icon" id="Icon">
 				</div>
 				
 				<div class="form-row-last">

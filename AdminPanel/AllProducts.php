@@ -77,13 +77,15 @@
                          }
               ?>
               <h3 style="text-align:center;">All Products</h3>
-                <form class="form form-inline" action="SearchCustomer.php" method="post">
+                <form class="form flex justify-between items-end" action="SearchCustomer.php" method="post">
                       <div class="input-group">
                       <label for="Search">Enter Something to Search</label>
                       <input type="text" id="search" name="SearchCustomer" placeholder="Enter..." class="form-control">
                     
                       </div>
-                    
+                      <div>
+                        <a href="AddProduct.php" class="logout topLogout">Add Product </a>
+                      </div>
 		  		    
 		  		    
 		  		</form>

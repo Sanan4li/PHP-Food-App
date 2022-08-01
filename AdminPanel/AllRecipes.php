@@ -7,7 +7,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Low Stock</title>
+    <title>All Recipes</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -77,13 +77,15 @@
                          }
               ?>
               <h3 style="text-align:center;">Low Stock Products</h3>
-                <form class="form form-inline" action="SearchCustomer.php" method="post">
+                <form class="form flex items-end justify-between" action="SearchCustomer.php" method="post">
                       <div class="input-group">
                       <label for="Search">Enter Something to Search</label>
                       <input type="text" id="search" name="SearchCustomer" placeholder="Enter..." class="form-control">
                     
                       </div>
-                    
+                      <div>
+                        <a href="AddRecipe.php" class="logout topLogout">Add Recipe </a>
+                      </div>
 		  		    
 		  		    
 		  		</form>

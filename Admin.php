@@ -273,11 +273,12 @@ class Admin{
             $Query = "UPDATE category SET Name= '$Name', Description = '$Description' Where  Id='$CatId'";
         }
         else{
-            $Query = "UPDATE category SET Name= '$Name', Description = '$Description', BackgroundImage = '$SaveImage'  Where  Id='$CatId'";
+            $Query = "UPDATE category SET Name= '$Name', Description = '$Description', BackgroundImage = '$SaveImage', CategoryIcon='$SaveIcon'  Where  Id='$CatId'";
         }
 
         $Result = mysqli_query($this->Connection , $Query);
         move_uploaded_file($TempImageName , $SaveImage);
+        move_uploaded_file($TempIconName , $SaveIcon);
         echo $Result;
         if($Result){
             header("Location:AdminPanel/AllCategories.php?Edited");

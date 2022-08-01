@@ -1,93 +1,115 @@
+.site-footer {
+  margin-bottom: 0;
+  background: black;
+}
+.blue {
+  color: blue;
+}
+.header {
+  /*              background: #B0B435;*/
+  background: black;
+}
+.logo b {
+  color: #b0b435;
+}
+.sidebar-toggle-box {
+  color: #b0b435;
+}
+#sidebar {
+  background: black;
+}
+.sub-menu a:hover,
+.active,
+.mt a:hover,
+.my a:hover {
+  background-color: #b0b435 !important ;
+}
+.sub a:hover {
+  background: none !important;
+}
+.topLogout {
+  background: #b0b435;
+  padding: 10px;
+  font-size: 18px;
+  font-family: arial;
+  color: white;
+  transition: 0.6s;
+}
+.sub-menu:hover {
+  cursor: pointer;
+}
+.topLogout:hover {
+  background: aqua;
+  color: black;
+}
+span {
+  font-size: 15px;
+  margin-left: 10px;
+}
 
-          .site-footer{
-            margin-bottom: 0;
-               background: black;
-           }
-           .blue{
-               color: blue;
-           }
-           .header{
- /*              background: #B0B435;*/
-               background: black;
-           }
-           .logo b{
-            color: #B0B435;   
-           }
-           .sidebar-toggle-box{
-               color: #B0B435;
-           }
-           #sidebar{
-               background: black;
-           }
-           .sub-menu a:hover, .active, .mt a:hover, .my a:hover{
-               background-color: #B0B435 !important ;
-           }
-           .sub a:hover{
-               background:none !important;
-           }
-           .topLogout{
-             background: #B0B435; padding: 10px; font-size: 18px; font-family:arial;
-             color:white;
-             transition:0.6s;
-           }
-           .sub-menu:hover{
-               cursor: pointer;
-           }
-           .topLogout:hover{
-              background:aqua;
-               color:black;
-           }
-           span {
-             font-size:15px;
-             margin-left:10px;
-           }
+.TableHead {
+  background: #595959;
+  color: #e6e6e6;
+  font-size: 16px;
+}
 
-           .TableHead{
-            background: #595959;
-            color: #e6e6e6;
-            font-size:16px;
-            
-        }
-       
-       
-        .icon{
-           margin-left: 5px;
-            font-size: 16px;
-        }
-      
-        .blue{
-            color: blue;
-        }
-        .red{
-            color:red;
-        }
-        .action:hover{
-            
-            background: black !important;
-            
-        }
-        .numeric{
-            font-size: 15px;
-        }
-        /* .my a:hover{
+.icon {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.blue {
+  color: blue;
+}
+.red {
+  color: red;
+}
+.action:hover {
+  background: black !important;
+}
+.numeric {
+  font-size: 15px;
+}
+/* .my a:hover{
             margin-top:0;   
             background: #B0B435 !important;
         } */
-        .pg-normal{
-            padding:3px;
-            color:black;
-            
-            /* background:green; */
-            margin-right:7px;
-          }
-          .pg-normal:hover, .pg-selected:hover{
-           cursor:pointer;
-          }
-          
-          .pg-selected{
-            padding:3px;
-            color:blue;
-            border:1px solid gray;
-            margin-right:7px;
-            /* background:green; */
-          }
+.pg-normal {
+  padding: 3px;
+  color: black;
+
+  /* background:green; */
+  margin-right: 7px;
+}
+.pg-normal:hover,
+.pg-selected:hover {
+  cursor: pointer;
+}
+
+.pg-selected {
+  padding: 3px;
+  color: blue;
+  border: 1px solid gray;
+  margin-right: 7px;
+  /* background:green; */
+}
+
+.flex {
+  display: flex;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
