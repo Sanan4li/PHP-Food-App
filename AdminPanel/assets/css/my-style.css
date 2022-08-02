@@ -6,14 +6,14 @@
   color: blue;
 }
 .header {
-  /*              background: #B0B435;*/
+  /*              background: #0576F0;*/
   background: black;
 }
 .logo b {
-  color: #b0b435;
+  color: #0576f0;
 }
 .sidebar-toggle-box {
-  color: #b0b435;
+  color: #0576f0;
 }
 #sidebar {
   background: black;
@@ -22,13 +22,13 @@
 .active,
 .mt a:hover,
 .my a:hover {
-  background-color: #b0b435 !important ;
+  background-color: #0576f0 !important ;
 }
 .sub a:hover {
   background: none !important;
 }
 .topLogout {
-  background: #b0b435;
+  background: #0576f0;
   padding: 10px;
   font-size: 18px;
   font-family: arial;
@@ -39,8 +39,8 @@
   cursor: pointer;
 }
 .topLogout:hover {
-  background: aqua;
-  color: black;
+  background: #1e40af;
+  color: white;
 }
 span {
   font-size: 15px;
@@ -72,7 +72,7 @@ span {
 }
 /* .my a:hover{
             margin-top:0;   
-            background: #B0B435 !important;
+            background: #0576F0 !important;
         } */
 .pg-normal {
   padding: 3px;

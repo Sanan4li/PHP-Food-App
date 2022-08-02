@@ -69,14 +69,14 @@
                  		if(isset($_GET["Deleted"])){
                             echo '<h1 class="blue text-center"> Product Deleted! </h1>';
                          }
-                         else if(isset($_GET["ProductAdded"])){
-                            echo '<h1 class="blue text-center"> New Product Added! </h1>';
+                         else if(isset($_GET["RecipeAdded"])){
+                            echo '<h1 class="blue text-center"> New Recipe Added! </h1>';
                          }
                          else if(isset($_GET["ProductEdited"])){
-                            echo '<h1 class="blue text-center"> Product Edited! </h1>';
+                            echo '<h1 class="blue text-center"> Recipe Edited! </h1>';
                          }
               ?>
-              <h3 style="text-align:center;">Low Stock Products</h3>
+              <h3 style="text-align:center;">All Recipes</h3>
                 <form class="form flex items-end justify-between" action="SearchCustomer.php" method="post">
                       <div class="input-group">
                       <label for="Search">Enter Something to Search</label>
@@ -98,12 +98,12 @@
                               <thead class="TableHead">
                               <tr>
                                   <th class=""> Name</th>
-                                  <th class=""> Category</th>
-                                  <th class="numeric">Price</th>
-                                  <th class="numeric">Discounted From</th>
+                                  <th class=""> Product</th>
+                                  <th class="numeric">Description</th>
+                                  <!-- <th class="numeric">Discounted From</th>
                                   <th class="numeric">Quantity</th>
                                     <th class="numeric">Expiry Date</th>
-                                    <th class="numeric">Status</th>
+                                    <th class="numeric">Status</th> -->
                                   <th class="numeric"> Action </th>
                               </tr>
                               </thead>
@@ -113,7 +113,7 @@
                                
                                  $C = new DataBaseConnection();
                                  $Connection = $C->Connect();
-                                  $Query = "Select *from Products where Quantity < 150";
+                                  $Query = "Select *from recipes ";
                                   $Result = mysqli_query($Connection , $Query);
                                   if($Result){
                                       while($Data = mysqli_fetch_assoc($Result)){
@@ -123,24 +123,24 @@
                                   
                                   <td class="numeric">'.$Data["Name"].'</td>
                                   ';
-                                    $NewQuery = "Select * from Categories Where Id =".$Data["CategoryId"];
+                                    $NewQuery = "Select * from products Where Id =".$Data["ProductId"];
                                     $ResultNew = mysqli_query($Connection , $NewQuery);
                                     if($ResultNew){
                                         $D = mysqli_fetch_assoc($ResultNew);
                                         echo '<td class="numeric">'.$D["Name"].'</td>';
                                     }
+                                    //     <td class="numeric">'.$Data["DiscountedPrice"].'</td>
+                                    // <td class="numeric">'.$Data["Quantity"].'</td>
+                                    //  <td class="numeric">'.$Data["ExpiryDate"].'</td>
+                                    //      <td class="numeric">'.$Data["Status"].'</td>
                                     echo '
-                                   
-                                       <td class="numeric">'.$Data["Price"].'</td>
-                                      <td class="numeric">'.$Data["DiscountedPrice"].'</td>
-                                  <td class="numeric">'.$Data["Quantity"].'</td>
-                                   <td class="numeric">'.$Data["ExpiryDate"].'</td>
-                                       <td class="numeric">'.$Data["Status"].'</td>
+                                    
+                                    <td class="numeric">'.$Data["Description"].'</td>
                                        <td class="numeric">
                                        
                                        
-                                       <a href="EditProduct.php?edit='.$Data["Id"].'"class="icon"  style="background:none !important"> <span class="glyphicon glyphicon-edit" title="Forward"></span></a>
-                                        <a href="../Admin.php?deleteP='.$Data["Id"].'&Page=LowStock"  class="icon"  style="background:none !important"> <span class="glyphicon glyphicon-trash" title="Delete"></span></a>
+                                       <a href="EditRecipe.php?edit='.$Data["Id"].'"class="icon"  style="background:none !important"> <span class="glyphicon glyphicon-edit" title="Forward"></span></a>
+                                        <a href="../Admin.php?deleteR='.$Data["Id"].'&Page=AllRecipes"  class="icon"  style="background:none !important"> <span class="glyphicon glyphicon-trash" title="Delete"></span></a>
                                        
                                        </td>
                               </tr>

@@ -169,6 +169,58 @@ class Admin{
     }
 
 
+    public function AddRecipe(){
+        extract($_POST);
+
+        $error=array();
+$extension=array("jpeg","jpg","png","gif");
+foreach($_FILES["SecondaryImage"]["tmp_name"] as $key=>$tmp_name) {
+    $file_name=$_FILES["SecondaryImage"]["name"][$key];
+    $file_tmp=$_FILES["SecondaryImage"]["tmp_name"][$key];
+    $ext=pathinfo($file_name,PATHINFO_EXTENSION);
+    echo $file_name;
+    if(in_array($ext,$extension)) {
+        if(!file_exists("photo_gallery/".$txtGalleryName."/".$file_name)) {
+            move_uploaded_file($file_tmp=$_FILES["SecondaryImage"]["tmp_name"][$key],"photo_gallery/".$txtGalleryName."/".$file_name);
+        }
+        else {
+            $filename=basename($file_name,$ext);
+            $newFileName=$filename.time().".".$ext;
+            move_uploaded_file($file_tmp=$_FILES["SecondaryImage"]["tmp_name"][$key],"photo_gallery/".$txtGalleryName."/".$newFileName);
+        }
+    }
+    else {
+        array_push($error,"$file_name, ");
+    }
+}
+
+
+
+
+
+
+
+        $Name = $_POST["Name"];
+        $Description = $_POST["Description"];
+        $Product = $_POST["Product"];
+        $ImageName = $_FILES["PrimaryImage"]["name"];
+       
+        $TempImageName = $_FILES["PrimaryImage"]["tmp_name"];
+        $SaveImage = "images/".$ImageName;
+        $Query = "INSERT INTO recipes(Name  , Description, PrimaryImage, ProductId )
+                            Values('$Name' ,  '$Description', '$SaveImage', '$Product' )";
+        $Result = mysqli_query($this->Connection , $Query);
+        move_uploaded_file($TempImageName , $SaveImage);
+        if($Result){
+          
+            //  header("location:AdminPanel/AllRecipes.php?RecipeAdded");
+        }
+        else{
+            echo "Error";
+        }
+    }
+
+
 
     
     public function AddProduct(){
@@ -255,6 +307,22 @@ class Admin{
             echo "Not Deleted";
         }
     }
+    
+    // function to delete Product
+    
+     public function DeleteRecipe($id){
+        $Query = "DELETE from recipes 
+                            WHERE Id = $id";
+            $Result  = mysqli_query($this->Connection , $Query);
+        if($Result){
+              $Page = $_GET["Page"];
+             
+            header("location:AdminPanel/".$Page.".php?Deleted=1");
+        }
+        else{
+            echo "Not Deleted";
+        }
+    }
  
     
     // function to edit category
@@ -309,9 +377,14 @@ if(isset($_POST["Login"])){
 
 
 if(isset($_GET["deleteP"])){
-    echo "Done";
+    // echo "Done";
     $id = $_GET["deleteP"];
     $N->DeleteProduct($id);
+}
+if(isset($_GET["deleteR"])){
+    // echo "Done";
+    $id = $_GET["deleteR"];
+    $N->DeleteRecipe($id);
 }
 if(isset($_GET["deleteCat"])){
    
@@ -329,6 +402,9 @@ if(isset($_POST["EditProfile"])){
 }
 if(isset($_POST["AddCategory"])){
     $N->AddCategory();
+}
+if(isset($_POST["AddRecipe"])){
+    $N->AddRecipe();
 }
 if(isset($_POST["AddProduct"])){
     $N->AddProduct();

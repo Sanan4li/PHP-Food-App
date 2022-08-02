@@ -52,7 +52,7 @@
 				</div>
 				<div class="form-row">
 					<label for="Image">Upload New Image</label>
-					<input type="file"  placeholder="Upload Image" class="text-input" name="BackgroundImage" id="Image" value="<?php echo $D['CategoryIcon']; ?>">
+					<input type="file" accept="image/*"  placeholder="Upload Image" class="text-input" name="BackgroundImage" id="Image" value="<?php echo $D['CategoryIcon']; ?>">
                 </div>
 				<div class="form-row">
 					<label for="Image">Brand Icon Uploaded</label>
@@ -60,7 +60,7 @@
 				</div>
 				<div class="form-row">
 						<label for="Icon">Upload New Brand Icon</label>
-						<input type="file" placeholder="Upload Icon for category" class="input-text" name="Icon" id="Icon" value="<?php echo $D['CategoryIcon']; ?>">
+						<input type="file" accept="image/*" placeholder="Upload Icon for category" class="input-text" name="Icon" id="Icon" value="<?php echo $D['CategoryIcon']; ?>">
 				</div>
 				
 				<div class="form-row-last">
