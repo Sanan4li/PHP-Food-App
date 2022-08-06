@@ -67,7 +67,7 @@
 		  		
 		  		 <?php
                  		if(isset($_GET["Deleted"])){
-                            echo '<h1 class="blue text-center"> Product Deleted! </h1>';
+                            echo '<h1 class="blue text-center"> Recipe Deleted! </h1>';
                          }
                          else if(isset($_GET["RecipeAdded"])){
                             echo '<h1 class="blue text-center"> New Recipe Added! </h1>';

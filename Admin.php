@@ -170,50 +170,24 @@ class Admin{
 
 
     public function AddRecipe(){
-        extract($_POST);
-
-        $error=array();
-$extension=array("jpeg","jpg","png","gif");
-foreach($_FILES["SecondaryImage"]["tmp_name"] as $key=>$tmp_name) {
-    $file_name=$_FILES["SecondaryImage"]["name"][$key];
-    $file_tmp=$_FILES["SecondaryImage"]["tmp_name"][$key];
-    $ext=pathinfo($file_name,PATHINFO_EXTENSION);
-    echo $file_name;
-    if(in_array($ext,$extension)) {
-        if(!file_exists("photo_gallery/".$txtGalleryName."/".$file_name)) {
-            move_uploaded_file($file_tmp=$_FILES["SecondaryImage"]["tmp_name"][$key],"photo_gallery/".$txtGalleryName."/".$file_name);
-        }
-        else {
-            $filename=basename($file_name,$ext);
-            $newFileName=$filename.time().".".$ext;
-            move_uploaded_file($file_tmp=$_FILES["SecondaryImage"]["tmp_name"][$key],"photo_gallery/".$txtGalleryName."/".$newFileName);
-        }
-    }
-    else {
-        array_push($error,"$file_name, ");
-    }
-}
-
-
-
-
-
-
-
+      
         $Name = $_POST["Name"];
         $Description = $_POST["Description"];
         $Product = $_POST["Product"];
         $ImageName = $_FILES["PrimaryImage"]["name"];
-       
         $TempImageName = $_FILES["PrimaryImage"]["tmp_name"];
         $SaveImage = "images/".$ImageName;
+
+
+
+
         $Query = "INSERT INTO recipes(Name  , Description, PrimaryImage, ProductId )
                             Values('$Name' ,  '$Description', '$SaveImage', '$Product' )";
         $Result = mysqli_query($this->Connection , $Query);
         move_uploaded_file($TempImageName , $SaveImage);
         if($Result){
           
-            //  header("location:AdminPanel/AllRecipes.php?RecipeAdded");
+             header("location:AdminPanel/AllRecipes.php?RecipeAdded");
         }
         else{
             echo "Error";
@@ -261,23 +235,35 @@ foreach($_FILES["SecondaryImage"]["tmp_name"] as $key=>$tmp_name) {
     }
       
     public function EditProduct(){
-        $Pid = $_POST["Pid"];
+
         $Name = $_POST["Name"];
         $Category = $_POST["Category"];
-        $Price = $_POST["Price"];
-        $DiscountedPrice = $_POST["DiscountedPrice"];
-        $Quantity = $_POST["Quantity"];
-        $ExpiryDate = $_POST["ExpiryDate"];
-        $Status = $_POST["Status"];
-        $ImageName = $_FILES["Image"]["name"];
-       
-        $TempImageName = $_FILES["Image"]["tmp_name"];
+        $SKU = $_POST["SKU"];
+        $CasesPerPallet = $_POST["CasesPerPallet"];
+        $CasesPerContainer = $_POST["CasesPerContainer"];
+        $Pack = $_POST["Pack"];
+        $ShelfLife = $_POST["ShelfLife"];
+        $PrimaryDescription = $_POST["PrimaryDescription"];
+        $SecondaryDescription = $_POST["SecondaryDescription"];
+        $ReasonOne = $_POST["ReasonOne"];
+        $ReasonTwo = $_POST["ReasonTwo"];
+        $ReasonThree = $_POST["ReasonThree"];
+        $ImageName = $_FILES["PrimaryImage"]["name"];
+        $SecondaryImageName = $_FILES["SecondaryImage"]["name"];
+        $BrandIcon = $_FILES["BrandIcon"]["name"];
+        $TempImageName = $_FILES["PrimaryImage"]["tmp_name"];
+        $TempBrandIcon = $_FILES["BrandIcon"]["tmp_name"];
+        $TempImageNameSecondary = $_FILES["SecondaryImage"]["tmp_name"];
         $SaveImage = "images/".$ImageName;
+        $SaveImageSecondary = "images/".$SecondaryImageName; 
+        $SaveImageBrand = "images/".$BrandIcon; 
+
+        $Pid = $_POST["Pid"];
         if(!file_exists($_FILES["Image"]["tmp_name"]) || !is_uploaded_file($_FILES["Image"]["tmp_name"])){
-            $Query = "Update products Set Name = '$Name'  , CategoryId = '$Category' , Price = '$Price', DiscountedPrice = '$DiscountedPrice', Quantity = '$Quantity', ExpiryDate = '$ExpiryDate', Status='$Status' Where Id = '$Pid'";
+            $Query = "Update products Set Name = '$Name'  , CategoryId = '$Category' , SKU = '$SKU', CasesPerPallet = '$CasesPerPallet', CasesPerContainer = '$CasesPerContainer', Pack = '$Pack', ShelfLife = '$ShelfLife', PrimaryDescription = '$PrimaryDescription', SecondaryDescription = '$SecondaryDescription', ReasonOne = '$ReasonOne', ReasonTwo = '$ReasonTwo', ReasonThree = '$ReasonThree' Where Id = '$Pid'";
         }
         else{
-            $Query = "Update products Set Name = '$Name'  , CategoryId = '$Category' , Price = '$Price', DiscountedPrice = '$DiscountedPrice', Quantity = '$Quantity', ExpiryDate = '$ExpiryDate', Status='$Status' , Image = '$SaveImage' Where Id = '$Pid'";
+            $Query = "Update products Set Name = '$Name'  , CategoryId = '$Category' , SKU = '$SKU', CasesPerPallet = '$CasesPerPallet', CasesPerContainer = '$CasesPerContainer', Pack = '$Pack', ShelfLife = '$ShelfLife', PrimaryDescription = '$PrimaryDescription', SecondaryDescription = '$SecondaryDescription', ReasonOne = '$ReasonOne', ReasonTwo = '$ReasonTwo', ReasonThree = '$ReasonThree' , Image = '$SaveImage' Where Id = '$Pid'";
         }
                        
         $Result = mysqli_query($this->Connection , $Query);
@@ -406,6 +392,9 @@ if(isset($_POST["AddCategory"])){
 if(isset($_POST["AddRecipe"])){
     $N->AddRecipe();
 }
+// if(isset($_POST["EditRecipe"])){
+//     $N->EditRecipe();
+// }
 if(isset($_POST["AddProduct"])){
     $N->AddProduct();
 }
