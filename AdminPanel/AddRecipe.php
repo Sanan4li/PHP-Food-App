@@ -57,23 +57,12 @@
 					<label for="Description"> Description</label>
 					<textarea rows="8" class="input-text" cols="76" name="Description" id="Description"></textarea>
 				</div>
+				 <div class="form-row">
+					<label for="Ingredients"> Ingredients</label>
+					<textarea rows="8" class="input-text" cols="76" name="Ingredients" id="Ingredients"></textarea>
+				</div>
 				
 				
-				<!-- <div class="form-row">
-                    <label for="ReasonOne">Why Choose Us 1</label>
-                    <input type="text" name="ReasonOne" id="ReasonOne" class="input-text" placeholder="ReasonOne" required >
-                    
-                </div>
-				<div class="form-row">
-                    <label for="ReasonTwo">Why Choose Us 2</label>
-                    <input type="text" name="ReasonTwo" id="ReasonTwo" class="input-text" placeholder="ReasonTwo" required >
-                    
-                </div>
-				<div class="form-row">
-                    <label for="ReasonThree">Why Choose Us 3</label>
-                    <input type="text" name="ReasonThree" id="ReasonThree" class="input-text" placeholder="ReasonThree" required >
-                    
-                </div> -->
 				
                 <div class="form-row">
 					<label for="PrimaryImage">Primary Image</label>
@@ -81,9 +70,21 @@
 				</div>
 				<div class="form-row">
 					<label for="SecondaryImage">Secondary Images (one or more) </label>
-					<input type="file" accept="image/*" placeholder="Upload Secondary Image" name="SecondaryImage"  id="SecondaryImage[]" multiple="true" class="input-text">
+					<input type="file" accept="image/*" placeholder="Upload Secondary Image" name="image[]"  id="SecondaryImage" multiple="true" class="input-text">
 				</div>
 				
+				<div id="steps">
+				<div class="form-row">
+					<label for="steps"> Steps 1</label>
+					<textarea rows="8" cols="76" name="Steps[]" id="" class="input-text" placeholder="Recipe Steps" required></textarea>
+					
+				</div>
+				<input type="hidden" value="1" name="totalSteps" id="totalSteps"/>
+				
+				</div>
+				<div>
+					<p class="input-text" style="display:block; color:white; text-decoration:underline; cursor:pointer;" id="addStepButton">Add More Step</p>
+				</div>
 			
 				<div class="form-row-last">
 					<input type="submit" name="AddRecipe" class="register" value="Add Recipe" id="register">
@@ -92,6 +93,34 @@
 			</form>
 		</div>
 	</div>
+	<script>
+		const button = document.querySelector("#addStepButton");
+		const stepsContainer = document.querySelector("#steps");
+		let counter = 1;
+		button.addEventListener("click", ()=>{
+			counter++;
+			const row = createNode("div", {"class":"form-row"});
+			const label = createNode("label",{});
+				  label.innerText="Step "+Number(counter);
+			const input = createNode("textarea", { "rows":"8", "cols":"76",  "class":"input-text", "name":"Steps[]","placeholder":"Enter Step "+counter, "required":true});
+			row.appendChild(label);
+			row.appendChild(input);
+			stepsContainer.appendChild(row);
+			
+
+
+		});
+
+		
+		
+		function createNode(node, attributes){
+    const el = document.createElement(node);
+    for(let key in attributes){
+        el.setAttribute(key, attributes[key]);
+    }
+    return el;
+}
+		</script>
 	
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

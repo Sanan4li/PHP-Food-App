@@ -170,9 +170,10 @@ class Admin{
 
 
     public function AddRecipe(){
-      
+        
         $Name = $_POST["Name"];
         $Description = $_POST["Description"];
+        $Ingredients = $_POST["Ingredients"];
         $Product = $_POST["Product"];
         $ImageName = $_FILES["PrimaryImage"]["name"];
         $TempImageName = $_FILES["PrimaryImage"]["tmp_name"];
@@ -181,12 +182,13 @@ class Admin{
 
 
 
-        $Query = "INSERT INTO recipes(Name  , Description, PrimaryImage, ProductId )
-                            Values('$Name' ,  '$Description', '$SaveImage', '$Product' )";
+        $Query = "INSERT INTO recipes(Name  , Description, Ingredients, PrimaryImage, ProductId )
+                            Values('$Name' ,  '$Description', '$Ingredients', '$SaveImage', '$Product' )";
         $Result = mysqli_query($this->Connection , $Query);
         move_uploaded_file($TempImageName , $SaveImage);
         if($Result){
-          
+            $this->InsertMultpleImages();
+            $this->insertSteps();
              header("location:AdminPanel/AllRecipes.php?RecipeAdded");
         }
         else{
@@ -194,7 +196,15 @@ class Admin{
         }
     }
 
-
+    public function insertSteps(){
+        $RecipeId =  mysqli_insert_id($this->Connection);
+        foreach ($_POST['Steps'] as $key => $value) {
+           $query = "INSERT INTO `recipe_steps`( `Description`, `RecipeId`) VALUES ('$value','$RecipeId')";
+         
+        $Result = mysqli_query($this->Connection, $query);
+       
+        }
+    }
 
     
     public function AddProduct(){
@@ -306,7 +316,7 @@ class Admin{
             header("location:AdminPanel/".$Page.".php?Deleted=1");
         }
         else{
-            echo "Not Deleted";
+            echo "Error in deleting data";
         }
     }
  
@@ -338,6 +348,80 @@ class Admin{
             header("Location:AdminPanel/AllCategories.php?Edited");
         }
         else{
+            echo "<h1>Error!</h1>";
+        }
+    }
+    
+
+
+
+    public function InsertMultpleImages(){
+
+       $RecipeId =  mysqli_insert_id($this->Connection);
+        $extension=array('jpeg','jpg','png','gif');
+	foreach ($_FILES['image']['tmp_name'] as $key => $value) {
+		$filename=$_FILES['image']['name'][$key];
+		$filename_tmp=$_FILES['image']['tmp_name'][$key];
+		echo '<br>';
+		$ext=pathinfo($filename,PATHINFO_EXTENSION);
+
+		$finalimg='';
+		if(in_array($ext,$extension))
+		{
+			if(!file_exists('images/'.$filename))
+			{
+			move_uploaded_file($filename_tmp, 'images/'.$filename);
+			$finalimg=$filename;
+			}else
+			{
+				 $filename=str_replace('.','-',basename($filename,$ext));
+				 $newfilename=$filename.time().".".$ext;
+				 move_uploaded_file($filename_tmp, 'images/'.$newfilename);
+				 $finalimg=$newfilename;
+			}
+		
+			//insert
+			$insertqry="INSERT INTO `recipe_images`( `ImageLink`, `RecipeId`) VALUES ('$finalimg','$RecipeId')";
+			mysqli_query($this->Connection,$insertqry);
+
+			// header('Location: index.php');
+		}else
+		{
+			//display error
+		}
+	}
+    }
+    
+    
+     // function to edit Recipe
+    public function EditRecipe(){
+        $RecipeId = $_POST["RecipeId"];
+        $Name  = $_POST["Name"];
+        $Description  = $_POST["Description"];
+        $Ingredients  = $_POST["Ingredients"];
+        $Product  = $_POST["Product"];
+        $ImageName = $_FILES["Image"]["name"];
+        // $IconName = $_FILES["Icon"]["name"];
+        $TempImageName = $_FILES["Image"]["tmp_name"];
+        // $TempIconName = $_FILES["Icon"]["tmp_name"];
+        $SaveImage = "images/".$ImageName;
+       
+        // $SaveIcon = "images/".$IconName;
+        if(!file_exists($_FILES["Image"]["tmp_name"]) || !is_uploaded_file($_FILES["Image"]["tmp_name"])){
+            $Query = "UPDATE recipes SET Name= '$Name', Description = '$Description' , Ingredients ='$Ingredients' , ProductId = '$Product' Where  Id='$RecipeId'";
+        }
+        else{
+            $Query = "UPDATE recipes SET Name= '$Name', Description = '$Description', Ingredients ='$Ingredients',  ProductId = '$Product', PrimaryImage = '$SaveImage'   Where  Id='$RecipeId'";
+        }
+
+        $Result = mysqli_query($this->Connection , $Query);
+        move_uploaded_file($TempImageName , $SaveImage);
+        // move_uploaded_file($TempIconName , $SaveIcon);
+        if($Result){
+            header("Location:AdminPanel/AllRecipes.php?Edited");
+        }
+        else{
+            echo $Result;
             echo "<h1>Error!</h1>";
         }
     }
@@ -392,9 +476,9 @@ if(isset($_POST["AddCategory"])){
 if(isset($_POST["AddRecipe"])){
     $N->AddRecipe();
 }
-// if(isset($_POST["EditRecipe"])){
-//     $N->EditRecipe();
-// }
+if(isset($_POST["EditRecipe"])){
+    $N->EditRecipe();
+}
 if(isset($_POST["AddProduct"])){
     $N->AddProduct();
 }

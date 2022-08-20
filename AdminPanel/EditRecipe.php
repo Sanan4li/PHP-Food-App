@@ -25,7 +25,7 @@
       ?>
 		<div class="form-v5-content">
 			<form class="form-detail" action="../Admin.php" method="post"   enctype="multipart/form-data">
-				<h2>Edit Category</h2>
+				<h2>Edit Recipe</h2>
 				<div class="form-row">
                     <?php
                        
@@ -77,11 +77,18 @@
 					<label for="Description">Description</label>
 					<textarea rows="10" cols="76" name="Description" class="input-text" id="Description"><?php echo $D["Description"]; ?> </textarea>
 				</div>
+                <div class="form-row">
+					<label for="Ingredients">Ingredients</label>
+					<textarea rows="10" cols="76" name="Ingredients" class="input-text" id="Ingredients"><?php echo $D["Ingredients"]; ?> </textarea>
+				</div>
 				<div class="form-row">
 					<label for="Image" >Primary Image Uploaded</label>
                     <img height="400"  width="570" src="../<?php echo $D["PrimaryImage"]; ?>">
 				</div>
-				
+                <div class="form-row">
+					<label for="Image">Upload New Primary Image</label>
+					<input type="file" accept="image/*" class="text-input"  placeholder="Upload Image" name="Image" id="Image" value="<?php echo $D["PrimaryImage"]; ?>">
+                </div>
 				
 				<div class="form-row-last">
 					<input type="submit" name="EditRecipe" class="register" value="Edit Recipe">
