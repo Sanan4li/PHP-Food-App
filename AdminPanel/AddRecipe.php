@@ -82,9 +82,24 @@
 				<input type="hidden" value="1" name="totalSteps" id="totalSteps"/>
 				
 				</div>
+				
+				
 				<div>
 					<p class="input-text" style="display:block; color:white; text-decoration:underline; cursor:pointer;" id="addStepButton">Add More Step</p>
 				</div>
+
+				<div id="ingredients">
+				<div class="form-row">
+					<label for="ingredients"> Ingredient 1</label>
+					<textarea rows="8" cols="76" name="Ingredients[]" id="" class="input-text" placeholder="Recipe Ingredients" required></textarea>
+					
+				</div>
+				<input type="hidden" value="1" name="totalIngredients" id="totalIngredients"/>
+				</div>
+				<div>
+					<p class="input-text" style="display:block; color:white; text-decoration:underline; cursor:pointer;" id="addIngredientButton">Add More Ingredient</p>
+				</div>
+				
 			
 				<div class="form-row-last">
 					<input type="submit" name="AddRecipe" class="register" value="Add Recipe" id="register">
@@ -95,8 +110,11 @@
 	</div>
 	<script>
 		const button = document.querySelector("#addStepButton");
+		const buttonIng = document.querySelector("#addIngredientButton");
 		const stepsContainer = document.querySelector("#steps");
+		const ingredientContainer = document.querySelector("#ingredients");
 		let counter = 1;
+		let counter2 = 1;
 		button.addEventListener("click", ()=>{
 			counter++;
 			const row = createNode("div", {"class":"form-row"});
@@ -106,9 +124,17 @@
 			row.appendChild(label);
 			row.appendChild(input);
 			stepsContainer.appendChild(row);
-			
+		});
 
-
+		buttonIng.addEventListener("click", ()=>{
+			counter2++;
+			const row = createNode("div", {"class":"form-row"});
+			const label = createNode("label",{});
+				  label.innerText="Ingredient "+Number(counter2);
+			const input = createNode("textarea", { "rows":"8", "cols":"76",  "class":"input-text", "name":"Ingredients[]","placeholder":"Enter Ingredient "+counter2, "required":true});
+			row.appendChild(label);
+			row.appendChild(input);
+			ingredientContainer.appendChild(row);
 		});
 
 		

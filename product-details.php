@@ -5,6 +5,7 @@ include "Footer.php";
 $DBC = new DataBaseConnection();
 $Connection = $DBC->Connect();
 $ProductId = $_GET["ProductId"];
+$CategoryId = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,7 @@ $ProductId = $_GET["ProductId"];
     
     if($Result){
       while($Data = mysqli_fetch_assoc($Result)){
-
+        $CategoryId = $Data["CategoryId"];
       ?>
       <div class="w-full md:w-1/3">
         <h1 class="text-3xl font-extrabold">About Product</h1>
@@ -46,10 +47,10 @@ $ProductId = $_GET["ProductId"];
           class="item-center relative flex h-[550px] w-[380px] flex-col justify-center rounded-full bg-white"
         >
           <div class="flex w-full items-center justify-center">
-            <img src="<?php echo $Data["PrimaryImage"]; ?>" alt="" />
+            <img src="<?php echo $Data["PrimaryImage"]; ?>"  class="max-h-[398px] max-w-[240px] object-cover" alt="" />
           </div>
           <div class="absolute -left-40 -bottom-8">
-            <img src="<?php echo $Data["SecondaryImage"]; ?>" alt="" />
+            <img src="<?php echo $Data["SecondaryImage"]; ?>" class="max-h-[285px] max-w-[285px] rounded-full object-cover" alt="" />
           </div>
         </div>
       </div>
@@ -57,27 +58,29 @@ $ProductId = $_GET["ProductId"];
         <h3 class="text-2xl font-semibold">SKU : <?php echo $Data["SKU"]; ?> </h3>
         <div class="mt-6">
           <p class="text-xl">Brand :</p>
-          <img class="mt-2" src="<?php echo $Data["BrandIcon"]; ?>" alt="" />
+          <img class="mt-2 max-h-[70px] max-w-[100px] object-cover" src="<?php echo $Data["BrandIcon"]; ?>" alt="" />
         </div>
         <div class="mt-32">
           <h2 class="text-2xl font-semibold">Why Choose Product</h2>
-          <div class="mt-4 flex items-center space-x-5 space-y-4">
-            <img src="images/tick.png" alt="" />
-            <span>
-            <?php echo $Data["ReasonOne"]; ?>
-            </span>
-          </div>
-          <div class="flex items-center space-x-5">
-            <img src="images/tick.png" alt="" />
-            <span>
-              <?php echo $Data["ReasonTwo"]; ?>
-            </span>
-          </div>
-          <div class="flex items-center space-x-5">
-            <img src="images/tick.png" alt="" />
-            <span>
-              <?php echo $Data["ReasonThree"]; ?>
-            </span>
+          <div class="flex flex-col space-y-3">
+            <div class="mt-4 flex items-center space-x-3">
+              <img src="images/tick.png" alt="" />
+              <span>
+                <?php echo $Data["ReasonOne"]; ?>
+      </span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <img src="images/tick.png" alt="" />
+              <span>
+              <?php echo $Data["ReasonTwo"]; ?> 
+              </span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <img src="images/tick.png" alt="" />
+              <span>
+              <?php echo $Data["ReasonThree"]; ?> 
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -135,72 +138,39 @@ $ProductId = $_GET["ProductId"];
       </div>
       <div class="mt-24">
         <h1 class="text-center text-3xl font-bold md:px-6 md:text-left">
-          People Also Viewed
+          People Also Viewed 
         </h1>
         <div class="mt-10">
           <div
-            class="mt-10 grid grid-cols-1 space-y-32 py-4 md:grid-cols-2 md:space-y-0 lg:grid-cols-4"
+            class="mt-10 grid grid-cols-1 py-4 md:grid-cols-2 md:space-y-0 lg:grid-cols-4"
           >
-            <div
-              class="mt-10 flex flex-col items-center justify-center"
-              style="background-image: url(images/productBackground.png)"
-            >
-              <div class="-mt-16">
-                <img
-                  src="images/ChoppedTomatoes.png"
-                  class="h-[200px] w-[140px]"
-                  alt=""
-                />
+          <?php 
+            $Query = "SELECT * FROM products where CategoryId = '$CategoryId' LIMIT  4";
+            $Result = mysqli_query($Connection, $Query);
+            if($Result){
+              while($Data = mysqli_fetch_assoc($Result)){
+                echo '
+                <div
+                class="mt-10 flex flex-col items-center justify-center"
+                style="background-image: url(images/productBackground.png)">
+                <div class="-mt-16">
+                  <img
+                    src="'.$Data["PrimaryImage"].'"
+                    class="h-[200px] w-[140px] object-cover"
+                    alt=""
+                  />
+                </div>
+                <div class="py-10">
+                  <h2 class="text-xl font-bold">'.$Data["Name"].'</h2>
+                </div>
               </div>
-              <div class="mb-10">
-                <h2 class="text-xl font-semibold">Cocktails</h2>
-              </div>
-            </div>
-            <div
-              class="mt-10 flex flex-col items-center justify-center"
-              style="background-image: url(images/productBackground.png)"
-            >
-              <div class="-mt-16">
-                <img
-                  src="images/ChoppedTomatoes.png"
-                  class="h-[200px] w-[140px]"
-                  alt=""
-                />
-              </div>
-              <div class="mb-10">
-                <h2 class="text-xl font-semibold">Cocktails</h2>
-              </div>
-            </div>
-            <div
-              class="mt-10 flex flex-col items-center justify-center"
-              style="background-image: url(images/productBackground.png)"
-            >
-              <div class="-mt-16">
-                <img
-                  src="images/ChoppedTomatoes.png"
-                  class="h-[200px] w-[140px]"
-                  alt=""
-                />
-              </div>
-              <div class="mb-10">
-                <h2 class="text-xl font-semibold">Cocktails</h2>
-              </div>
-            </div>
-            <div
-              class="mt-10 flex flex-col items-center justify-center"
-              style="background-image: url(images/productBackground.png)"
-            >
-              <div class="-mt-16">
-                <img
-                  src="images/ChoppedTomatoes.png"
-                  class="h-[200px] w-[140px]"
-                  alt=""
-                />
-              </div>
-              <div class="mb-10">
-                <h2 class="text-xl font-semibold">Cocktails</h2>
-              </div>
-            </div>
+                ';
+              }
+            }
+          
+          ?>
+           
+            
           </div>
         </div>
       </div>

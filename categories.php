@@ -31,8 +31,7 @@ $Connection = $DBC->Connect();
     </div>
     <div class="main-container -mt-96">
       <div
-        class=" mt-10 grid grid-cols-1 content-center space-y-24 md:space-y-0 py-4 md:grid-cols-2 lg:grid-cols-3"
-      >
+        class=" mt-10 grid grid-cols-1  md:space-y-0 py-4 md:grid-cols-2 lg:grid-cols-3">
         <?php
         $Query = "SELECT * FROM category";
         $Result = mysqli_query($Connection, $Query);
@@ -40,10 +39,10 @@ $Connection = $DBC->Connect();
           
           while($Data = mysqli_fetch_assoc($Result)){
             echo '
+            <a href="products.php?CategoryId='.$Data["Id"].'">
             <div
             class="mt-10 flex flex-col items-center justify-center py-3"
-            style="background-image: url(images/productBackground.png)"
-          >
+            style="background-image: url(images/productBackground.png)">
             <div class="-mt-24">
               <img
                 src="images/product-1.png"
@@ -51,10 +50,13 @@ $Connection = $DBC->Connect();
                 alt=""
               />
             </div>
-            <div class="-mt-10">
+            <div class="py-4">
               <h2 class="text-3xl font-semibold">'.$Data["Name"].'</h2>
             </div>
           </div>
+
+
+            </a>
             ';
           }
         }

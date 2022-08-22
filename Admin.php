@@ -13,6 +13,7 @@ class Admin{
     public $Password;
     public $Connection;
     
+    public $RecipeIdGlobal;
     
     
     // checking if the use is already logged in or not
@@ -182,13 +183,14 @@ class Admin{
 
 
 
-        $Query = "INSERT INTO recipes(Name  , Description, Ingredients, PrimaryImage, ProductId )
-                            Values('$Name' ,  '$Description', '$Ingredients', '$SaveImage', '$Product' )";
+        $Query = "INSERT INTO recipes(Name  , Description, PrimaryImage, ProductId )
+                            Values('$Name' ,  '$Description',  '$SaveImage', '$Product' )";
         $Result = mysqli_query($this->Connection , $Query);
         move_uploaded_file($TempImageName , $SaveImage);
         if($Result){
             $this->InsertMultpleImages();
             $this->insertSteps();
+            $this->insertIngredients();
              header("location:AdminPanel/AllRecipes.php?RecipeAdded");
         }
         else{
@@ -197,12 +199,35 @@ class Admin{
     }
 
     public function insertSteps(){
-        $RecipeId =  mysqli_insert_id($this->Connection);
+        // $RecipeId =  mysqli_insert_id($this->Connection);
         foreach ($_POST['Steps'] as $key => $value) {
-           $query = "INSERT INTO `recipe_steps`( `Description`, `RecipeId`) VALUES ('$value','$RecipeId')";
+           $query = "INSERT INTO `recipe_steps`( `Description`, `RecipeId`) VALUES ('$value','$this->RecipeIdGlobal')";
          
         $Result = mysqli_query($this->Connection, $query);
-       
+
+        if(!$Result){
+            echo "<h1?>Something went wrong</h1>";
+        }
+        return;
+
+        }
+    }
+    
+    public function insertIngredients(){
+        // $RecipeId =  mysqli_insert_id($this->Connection);
+        foreach ($_POST['Ingredients'] as $key => $value) {
+           $query = "INSERT INTO `recipe_ingredients`( `Name`, `RecipeId`) VALUES ('$value','$this->RecipeIdGlobal')";
+         
+        $Result = mysqli_query($this->Connection, $query);
+            echo $query;
+            echo "<br>";
+            echo $value;
+            echo $this->RecipeIdGlobal;
+        if(!$Result){
+            echo "<h1?>Something went wrong</h1>";
+        }
+        return;
+
         }
     }
 
@@ -357,7 +382,7 @@ class Admin{
 
     public function InsertMultpleImages(){
 
-       $RecipeId =  mysqli_insert_id($this->Connection);
+       $this->RecipeIdGlobal =  mysqli_insert_id($this->Connection);
         $extension=array('jpeg','jpg','png','gif');
 	foreach ($_FILES['image']['tmp_name'] as $key => $value) {
 		$filename=$_FILES['image']['name'][$key];
@@ -381,7 +406,7 @@ class Admin{
 			}
 		
 			//insert
-			$insertqry="INSERT INTO `recipe_images`( `ImageLink`, `RecipeId`) VALUES ('$finalimg','$RecipeId')";
+			$insertqry="INSERT INTO `recipe_images`( `ImageLink`, `RecipeId`) VALUES ('$finalimg','$this->RecipeIdGlobal')";
 			mysqli_query($this->Connection,$insertqry);
 
 			// header('Location: index.php');
