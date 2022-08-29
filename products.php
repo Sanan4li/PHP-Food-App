@@ -128,7 +128,7 @@ $CategoryId = $_GET["CategoryId"];
           
         </div>
         <div class="mt-12 flex justify-center">
-          <a href="#" class="button">View all Recipes</a>
+          <a href="recipes.php" class="button">View all Recipes</a>
         </div>
       </div>
     </div>

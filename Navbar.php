@@ -41,7 +41,7 @@ function displayNavbar($About, $Products, $Services, $Contact, $Recipes){
           >
           <a
             class="'.$Products.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
-            href="#"
+            href="categories.php"
             >Our Product Range</a
           >
           <a
@@ -57,7 +57,7 @@ function displayNavbar($About, $Products, $Services, $Contact, $Recipes){
           >
           <a
             class="'.$Recipes.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
-            href="#"
+            href="recipes.php"
             >Recipe Hub</a
           >
         </div>

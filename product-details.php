@@ -149,22 +149,27 @@ $CategoryId = 0;
             $Result = mysqli_query($Connection, $Query);
             if($Result){
               while($Data = mysqli_fetch_assoc($Result)){
-                echo '
-                <div
-                class="mt-10 flex flex-col items-center justify-center"
-                style="background-image: url(images/productBackground.png)">
-                <div class="-mt-16">
-                  <img
-                    src="'.$Data["PrimaryImage"].'"
-                    class="h-[200px] w-[140px] object-cover"
-                    alt=""
-                  />
+                if($Data["Id"]!=$ProductId){
+                  echo '
+                  <a href="product-details.php?ProductId='.$Data["Id"].'">
+                  <div
+                  class="mt-10 flex flex-col items-center justify-center"
+                  style="background-image: url(images/productBackground.png)">
+                  <div class="-mt-16">
+                    <img
+                      src="'.$Data["PrimaryImage"].'"
+                      class="h-[200px] w-[140px] object-cover"
+                      alt=""
+                    />
+                  </div>
+                  <div class="py-10">
+                    <h2 class="text-xl font-bold">'.$Data["Name"].'</h2>
+                  </div>
                 </div>
-                <div class="py-10">
-                  <h2 class="text-xl font-bold">'.$Data["Name"].'</h2>
-                </div>
-              </div>
-                ';
+  
+                  </a>
+                  ';
+                }
               }
             }
           
