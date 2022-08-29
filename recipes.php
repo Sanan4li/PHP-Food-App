@@ -79,26 +79,23 @@ $Connection = $DBC->Connect();
           if($Result){
             while($Data = mysqli_fetch_assoc($Result)){
               echo '
-             <a href="recipe-details.php?RecipeId='.$Data["Id"].'">
-
-             <div class="w-[300px] rounded-[32px] bg-white p-2">
-             <div>
-               <img
-                 src="'.$Data["PrimaryImage"].'"
-                 class="h-[230px] w-full max-w-full rounded-3xl object-cover"
-                 alt=""
-               />
-             </div>
-             <div class="p-3">
-               <h2 class="text-center text-2xl font-bold">'.$Data["Name"].'</h2>
-               <p class="mt-4 text-center">
-                 '.$Data["Description"].'
-               </p>
-             </div>
-           </div>
-
-
-             </a>
+              <a href="recipe-details.php?RecipeId='.$Data["Id"].'">
+              <div class="w-full min-w-[300px] rounded-[32px] bg-white p-2">
+              <div>
+                <img
+                  src="'.$Data["PrimaryImage"].'"
+                  class="h-[230px] w-full max-w-full rounded-3xl object-cover"
+                  alt=""
+                />
+              </div>
+              <div class="p-3">
+                <h2 class="text-center text-2xl font-bold recipe-heading">'.$Data["Name"].'</h2>
+                <p class="mt-4 text-center recipe-description">
+                  '.$Data["Description"].'
+                </p>
+              </div>
+            </div>
+              </a>
             ';
 
             }

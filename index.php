@@ -218,8 +218,8 @@ $Connection = $DBC->Connect();
                />
              </div>
              <div class="p-3">
-               <h2 class="text-center text-2xl font-bold">'.$Data["Name"].'</h2>
-               <p class="mt-4 text-center">
+               <h2 class="text-center text-2xl font-bold recipe-heading">'.$Data["Name"].'</h2>
+               <p class="mt-4 text-center recipe-description">
                  '.$Data["Description"].'
                </p>
              </div>

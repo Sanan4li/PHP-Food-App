@@ -1,0 +1,51 @@
+/* @import url("fonts/Mont.ttf"); */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+@tailwind base;
+@tailwind components;
+@font-face {
+  font-family: "mont";
+  src: local("mont"), url(./fonts/Mont.ttf) format("ttf");
+}
+@tailwind utilities;
+.button {
+  @apply rounded-xl bg-primary px-8 py-3 font-bold text-white shadow-xl shadow-primary/20 hover:bg-blue-700;
+}
+.main-container {
+  @apply mx-auto w-full max-w-7xl px-6;
+}
+.recipe-heading {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.recipe-description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+.heading {
+  @apply text-4xl font-extrabold;
+}
+.active-menu {
+  border-bottom: 2px solid;
+
+  /* border-image: linear-gradient(
+    to left,
+    rgba(108, 219, 141, 0) 25%,
+    rgb(27, 42, 31) 25%,
+    rgb(15, 20, 17) 75%,
+    rgba(108, 0, 141, 0) 15%
+  ); */
+  border-image: linear-gradient(to left, #000 50%, transparent 50%) 100% 1;
+}
+.menu-hover:hover {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to left, #000 50%, transparent 50%) 100% 1;
+  font-weight: bold;
+}

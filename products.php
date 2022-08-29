@@ -5,6 +5,7 @@ include "Footer.php";
 $DBC = new DataBaseConnection();
 $Connection = $DBC->Connect();
 $CategoryId = $_GET["CategoryId"];
+$ProductName;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +28,7 @@ $CategoryId = $_GET["CategoryId"];
     
     if($Result){
       while($Data = mysqli_fetch_assoc($Result)){
+        $ProductName = $Data["Name"];
         echo '
         <div
         class="relative -z-10 h-[660px] w-full object-cover"
@@ -90,7 +92,7 @@ $CategoryId = $_GET["CategoryId"];
     </div>
     <div class="main-container py-20">
       <div class="">
-        <h1 class="heading text-center">Cocktails Recipes</h1>
+        <h1 class="heading text-center"><?php echo $ProductName;  ?></h1>
         <div
           class="mt-10 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
           <?php
@@ -99,27 +101,22 @@ $CategoryId = $_GET["CategoryId"];
             while($Data = mysqli_fetch_assoc($Result)){
               echo '
               <a href="recipe-details.php?RecipeId='.$Data["Id"].'">
-              <div class="w-[300px] rounded-[32px] bg-white p-2">
-              <div>
-                <img
-                  src="'.$Data["PrimaryImage"].'"
-                  class="h-[230px] w-full max-w-full rounded-3xl object-cover"
-                  alt=""
-                />
-              </div>
-              <div class="p-1.5">
-                <div class="mt-2 flex justify-between">
-                  <span> 23 Dec, 2022 </span>
-                  <span> 5 mins Read </span>
-                </div>
-                <div>
-                  <p class="mt-5 mb-3 text-2xl font-bold">
-                   '.$Data["Description"].'
-                  </p>
-                </div>
-              </div>
-            </div>
-            </a>
+             <div class="w-full min-w-[300px] rounded-[32px] bg-white p-2">
+             <div>
+               <img
+                 src="'.$Data["PrimaryImage"].'"
+                 class="h-[230px] w-full max-w-full rounded-3xl object-cover"
+                 alt=""
+               />
+             </div>
+             <div class="p-3">
+               <h2 class="text-center text-2xl font-bold recipe-heading">'.$Data["Name"].'</h2>
+               <p class="mt-4 text-center recipe-description">
+                 '.$Data["Description"].'
+               </p>
+             </div>
+           </div>
+             </a>
               ';
             }
 
