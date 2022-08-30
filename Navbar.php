@@ -36,7 +36,7 @@ function displayNavbar($About, $Products, $Services, $Contact, $Recipes){
         <div class="flex flex-col lg:mx-6 lg:flex-row">
           <a
             class="'.$About.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
-            href="#"
+            href="about-us.php"
             >About Us</a
           >
           <a
@@ -46,13 +46,13 @@ function displayNavbar($About, $Products, $Services, $Contact, $Recipes){
           >
           <a
             class="'.$Services.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
-            href="#"
+            href="services.php"
           >
             Our Services</a
           >
           <a
             class="'.$Contact.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
-            href="#"
+            href="contact-us.php"
             >Contact Us</a
           >
           <a

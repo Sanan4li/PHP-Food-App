@@ -14,6 +14,7 @@ $Connection = $DBC->Connect();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/tailwind.css" />
     <title>Recipes</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="w-full bg-background">
     <div class="w-full bg-white">
@@ -26,6 +27,7 @@ $Connection = $DBC->Connect();
       style="
         background-image: url(images/featuredRecipesBg.png);
         background-repeat: no-repeat;
+        background-size:100%;
       "
     >
       <div class="main-container -mt-32 py-40">
@@ -40,11 +42,19 @@ $Connection = $DBC->Connect();
           <div class="px-2">
             <h1 class="text-2xl font-bold">Filter</h1>
           </div>
+          <div class="flex space-x-4">
           <div>
-            <a href="#" class="border-b border-blue-600 text-blue-600">
-              Reset Filter
+            <a href="#" class="bg-primary px-2 py-1 text-white  rounded-md">
+              Apply
             </a>
           </div>
+          <div>
+            <a href="#" class="border-b border-blue-600 text-blue-600">
+              Reset
+            </a>
+          </div>
+          </div>
+                   
         </div>
        <?php
        $Query = "SELECT * FROM category";
@@ -52,11 +62,48 @@ $Connection = $DBC->Connect();
        
        if($Result){
          while($Data = mysqli_fetch_assoc($Result)){
+          $Id = $Data["Id"];
            echo '
-          <div class="my-2 flex w-full items-center space-x-4 px-2">
-           <input type="checkbox" class="h-4 w-4" id="test" />
-           <label class="font-bold" id="test">'.$Data["Name"].'</label>
-         </div>
+           <div x-data="{ open: false }">
+          <div class="my-2 flex justify-between px-2" x-on:click="open = ! open">
+           <div class=" flex w-full items-center space-x-4 ">
+           <input type="checkbox" class="h-4 w-4 " id="test" />
+           <label class="font-bold cursor-pointer" :class="{ \'text-primary\': open }" id="test">'.$Data["Name"].'</label>
+           </div>
+           <div class="cursor-pointer">
+          
+           <template x-if="open">
+           <span>
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+           <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+           </svg>        
+         </span>
+           </template>
+           
+           <template x-if="!open">
+           <span>
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+           </svg>
+         </span>
+           </template>
+          
+
+
+           </div>
+          </div>
+          '; 
+          $Query1 = "SELECT * FROM products where CategoryId='$Id'";
+       $Result1 = mysqli_query( $Connection, $Query1);
+       
+       if($Result1){
+         while($Data1 = mysqli_fetch_assoc($Result1)){
+         echo ' <div class="my-2 flex w-full items-center space-x-4 px-2"  x-show="open">
+         <input type="checkbox" class="h-4 w-4" id="test" />
+         <label class="" id="test">'.$Data1["Name"].'</label>
+        </div>';
+        }}
+    echo '      </div>
            ';
 
          }

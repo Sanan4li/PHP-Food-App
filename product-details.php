@@ -39,7 +39,7 @@ $CategoryId = 0;
           <?php echo $Data["PrimaryDescription"]; ?>
         </p>
         <div class="mt-8">
-          <a href="#" class="button"> View Recipes </a>
+          <a href="product-recipes.php?ProductId=<?php echo $Data['Id']; ?>" class="button"> View Recipes </a>
         </div>
       </div>
       <div class="flex w-full justify-center md:w-1/3">
