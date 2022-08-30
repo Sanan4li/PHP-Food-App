@@ -16,7 +16,7 @@ $ProductName;
     <link rel="stylesheet" href="css/tailwind.css" />
     <title>Products</title>
   </head>
-  <body class="w-full bg-background">
+  <body class="w-full bg-background" id="body">
     <div class="w-full bg-white">
       <div class="main-container">
       <?php displayNavbar("", "active-menu", "", "", ""); ?>
@@ -130,5 +130,7 @@ $ProductName;
       </div>
     </div>
     <?php displayFooter(); ?>
+    <script src="javascript/responsive.js"></script>
+   
   </body>
 </html>

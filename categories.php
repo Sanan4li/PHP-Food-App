@@ -15,7 +15,7 @@ $Connection = $DBC->Connect();
     <link rel="stylesheet" href="css/tailwind.css" />
     <title>Categories</title>
   </head>
-  <body class="w-full bg-background">
+  <body class="w-full bg-background" id="body">
     <div class="w-full bg-white">
       <div class="main-container">
        <?php displayNavbar("", "active-menu", "", "", ""); ?>
@@ -68,8 +68,9 @@ $Connection = $DBC->Connect();
       </div>
     </div>
         <?php
-
-        displayFooter();
-?>
+        displayFooter(); 
+        ?>
+ <script src="javascript/responsive.js"></script>
+   
   </body>
 </html>

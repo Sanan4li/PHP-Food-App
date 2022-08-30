@@ -16,7 +16,7 @@ $Connection = $DBC->Connect();
     <title>Recipes</title>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
-  <body class="w-full bg-background">
+  <body class="w-full bg-background" id="body">
     <div class="w-full bg-white">
       <div class="main-container">
       <?php displayNavbar("", "", "", "","active-menu") ?>
@@ -155,5 +155,7 @@ $Connection = $DBC->Connect();
    <?php
       displayFooter();
    ?>
+    <script src="javascript/responsive.js"></script>
+   
   </body>
 </html>

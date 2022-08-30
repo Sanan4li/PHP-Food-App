@@ -16,7 +16,7 @@ $ProductId =-1;
     <link rel="stylesheet" href="css/tailwind.css" />
     <title>Products Details</title>
   </head>
-  <body class="w-full bg-background">
+  <body class="w-full bg-background" id="body">
     <div class="w-full bg-white">
       <div class="main-container">
       <?php displayNavbar("", "", "", "", "active-menu"); ?>
@@ -156,5 +156,7 @@ $ProductId =-1;
     </div>
 
    <?php displayFooter(); ?>
+   <script src="javascript/responsive.js"></script>
+   
   </body>
 </html>

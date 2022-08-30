@@ -77,6 +77,7 @@
                                   <th class=""> Name</th>
                                  
                                   <th class="numeric">Email</th>
+                                  <th class="numeric">Phone Number</th>
                                   <th class="">Message</th>
                                 
                                  
@@ -101,6 +102,7 @@
                                   <td class="">'.$Data["Name"].'</td>
                                
                                   <td class="">'.$Data["Email"].'</td>
+                                  <td class="">'.$Data["Phone"].'</td>
                                    <td class="numeric">'.$Data["Message"].'</td>
                                        
                                        <td class="numeric">

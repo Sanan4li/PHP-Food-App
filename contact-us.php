@@ -4,7 +4,17 @@ include "Navbar.php";
 include "Footer.php";
 $DBC = new DataBaseConnection();
 $Connection = $DBC->Connect();
-  if(isset($_POST[""]))
+  if(isset($_POST["Send"])){
+    $Name = $_POST["Name"];
+    $Email = $_POST["Email"];
+    $Phone = $_POST["Phone"];
+    $Subject = $_POST["Subject"];
+    $Message = $_POST["Message"];
+   
+    $Query = "INSERT INTO messages(Name, Email, Phone, Subject, Message) values('$Name','$Email', '$Phone', '$Subject', '$Message' )";
+    $Result = mysqli_query($Connection, $Query);
+    header("location:contact-us.php?sent");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +25,7 @@ $Connection = $DBC->Connect();
     <link rel="stylesheet" href="css/tailwind.css" />
     <title>Contact Us</title>
   </head>
-  <body class="w-full bg-background">
+  <body class="w-full bg-background" id="body">
     <div class="w-full bg-white">
       <div class="main-container">
       <?php displayNavbar("", "", "", "active-menu","") ?>
@@ -28,7 +38,15 @@ $Connection = $DBC->Connect();
         background-repeat: no-repeat;
       "
     >
+   
+      
+   
       <div class="main-container -mt-32 py-40">
+      <?php  if(isset($_GET["sent"])){
+        echo '<h1 class="text-3xl text-primary text-center text-black">
+        Message sent!
+      </h1>';
+      } ?>
         <h1 class="heading mt-20 text-center text-black">
           Get in Touch With Us
         </h1>
@@ -48,9 +66,10 @@ $Connection = $DBC->Connect();
               >
 
               <input
-                class="block w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 dark:text-gray-300"
+                class="block w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 "
+                required="true"
                 type="text"
-                name=""
+                name="Name"
               />
             </div>
 
@@ -60,8 +79,10 @@ $Connection = $DBC->Connect();
               >
 
               <input
-                class="block w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 dark:text-gray-300"
+                class="block w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 "
+                required="true"
                 type="email"
+                name="Email"
               />
             </div>
             <div class="mt-4 w-full">
@@ -70,8 +91,10 @@ $Connection = $DBC->Connect();
               >
 
               <input
-                class="block w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 dark:text-gray-300"
-                type="email"
+                class="block w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 "
+                required="true"
+                type="text"
+                name="Phone"
               />
             </div>
             <div class="mt-4 w-full">
@@ -80,8 +103,10 @@ $Connection = $DBC->Connect();
               >
 
               <input
-                class="block w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 dark:text-gray-300"
-                type="email"
+                class="block w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 "
+                required="true"
+                type="text"
+                name="Subject"
               />
             </div>
           </div>
@@ -92,12 +117,13 @@ $Connection = $DBC->Connect();
             >
 
             <textarea
-              class="block h-40 w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 dark:text-gray-300"
+              required="true"
+              class="block h-40 w-full rounded-md border bg-white px-4 py-2 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-300 " name="Message"
             ></textarea>
           </div>
 
           <div class="mt-10 flex justify-center">
-            <button class="button w-full transform" name="send">Send Us a Message</button>
+            <button class="button w-full transform" name="Send">Send Us a Message</button>
           </div>
         </div>
 </form>
@@ -105,5 +131,7 @@ $Connection = $DBC->Connect();
     </div>
 
    <?php displayFooter(); ?>
+   <script src="javascript/responsive.js"></script>
+   
   </body>
 </html>
