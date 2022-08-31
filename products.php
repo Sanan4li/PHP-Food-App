@@ -38,7 +38,7 @@ $ProductName;
           class="main-container -mt-12 flex flex-col items-center justify-center py-20"
         >
           <img src="'.$Data["CategoryIcon"].'" class="mt-2 max-h-[70px] max-w-[100px] object-cover" alt="" />
-          <h1 class="heading mt-10 text-center text-white">Our Products</h1>
+          <h1 class="heading mt-10 text-center text-white">'.$Data["Name"].'</h1>
           <p class="mx-auto mt-5 w-full text-white md:w-1/2">
            '.$Data["Description"].'
           </p>

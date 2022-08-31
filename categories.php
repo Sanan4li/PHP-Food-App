@@ -38,17 +38,29 @@ $Connection = $DBC->Connect();
         if($Result){
           
           while($Data = mysqli_fetch_assoc($Result)){
+            $CatId = $Data["Id"];
             echo '
             <a href="products.php?CategoryId='.$Data["Id"].'">
-            <div
+           <div
             class="mt-10 flex flex-col items-center justify-center py-3"
             style="background-image: url(images/productBackground.png)">
+            
             <div class="-mt-24">
-              <img
-                src="images/product-1.png"
-                class="h-[350px] w-[240px]"
+            ';
+            $Q = "SELECT * FROM products WHERE CategoryId='$CatId' LIMIT 1";
+           $R = mysqli_query($Connection, $Q);
+           if($R){
+             
+             while($D = mysqli_fetch_assoc($R)){
+              echo '
+            <img
+                src="'.$D["PrimaryImage"].'"
+                class="h-[350px] w-[240px] object-cover"
                 alt=""
-              />
+              />';
+             }
+            }
+            echo '
             </div>
             <div class="py-4">
               <h2 class="text-3xl font-semibold">'.$Data["Name"].'</h2>
