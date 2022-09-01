@@ -1,9 +1,7 @@
 <?php
-include "DataBaseConnection.php";
 include "Navbar.php";
 include "Footer.php";
-$DBC = new DataBaseConnection();
-$Connection = $DBC->Connect();
+
   if(isset($_POST["Send"])){
     $Name = $_POST["Name"];
     $Email = $_POST["Email"];

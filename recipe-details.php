@@ -1,9 +1,6 @@
 <?php
-include "DataBaseConnection.php";
 include "Navbar.php";
 include "Footer.php";
-$DBC = new DataBaseConnection();
-$Connection = $DBC->Connect();
 $RecipeId = $_GET["RecipeId"];
 $ProductId =-1;
 ?>

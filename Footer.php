@@ -1,6 +1,9 @@
 <?php
 
 function displayFooter(){
+  global $Connection;
+  $Query = "SELECT * FROM category";
+  $Result = mysqli_query($Connection, $Query);
     echo '
     <footer class="mt-20 w-full bg-white py-20">
     <div class="mx-auto max-w-7xl px-6 py-8">
@@ -37,48 +40,19 @@ function displayFooter(){
         <div>
           <div class="text-lg font-bold text-black">Products</div>
 
+         ';
+         while($Data= mysqli_fetch_assoc($Result)){
+          echo '
+          
           <a
-            href="#"
-            class="mt-5 block text-base text-gray-500 duration-700 hover:text-gray-900 hover:underline"
-          >
-            Installation
-          </a>
-          <a
-            href="#"
+            href="products.php?CategoryId='.$Data["Id"].'"
             class="mt-3 block text-base text-gray-500 duration-700 hover:text-gray-900 hover:underline"
           >
-            Release Notes
+            '.$Data["Name"].'
           </a>
-          <a
-            href="#"
-            class="mt-3 block text-base text-gray-500 duration-700 hover:text-gray-900 hover:underline"
-          >
-            Upgrade Guide
-          </a>
-          <a
-            href="#"
-            class="mt-3 block text-base text-gray-500 duration-700 hover:text-gray-900 hover:underline"
-          >
-            Using with Preprocessors
-          </a>
-          <a
-            href="#"
-            class="mt-3 block text-base text-gray-500 duration-700 hover:text-gray-900 hover:underline"
-          >
-            Optimizing for Production
-          </a>
-          <a
-            href="#"
-            class="mt-3 block text-base text-gray-500 duration-700 hover:text-gray-900 hover:underline"
-          >
-            Browser Support
-          </a>
-          <a
-            href="#"
-            class="mt-3 block text-base text-gray-500 duration-700 hover:text-gray-900 hover:underline"
-          >
-            IntelliSense
-          </a>
+          ';
+         }
+         echo '
         </div>
 
         <div>

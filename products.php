@@ -1,9 +1,6 @@
 <?php
-include "DataBaseConnection.php";
 include "Navbar.php";
 include "Footer.php";
-$DBC = new DataBaseConnection();
-$Connection = $DBC->Connect();
 $CategoryId = $_GET["CategoryId"];
 $ProductName;
 ?>
@@ -32,7 +29,7 @@ $ProductName;
         echo '
         <div
         class="relative -z-10 h-[660px] w-full object-cover"
-        style="background-image: url('.$Data["BackgroundImage"].')"
+        style="background-image: url('.$Data["BackgroundImage"].'); background-size:100%; background-repeat:no-repeat;"
       >
         <div
           class="main-container -mt-12 flex flex-col items-center justify-center py-20"
