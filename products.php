@@ -89,11 +89,11 @@ $ProductName;
     </div>
     <div class="main-container py-20">
       <div class="">
-        <h1 class="heading text-center"><?php echo $ProductName;  ?></h1>
+        <h1 class="heading text-center"><?php echo $ProductName;  ?> Recipes</h1>
         <div
           class="mt-10 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
           <?php
-            $Query = "SELECT * FROM recipes WHERE ProductId = 8";
+            $Query = "SELECT * FROM recipes WHERE CategoryId = '$CategoryId'";
             $Result = mysqli_query($Connection, $Query);
             while($Data = mysqli_fetch_assoc($Result)){
               echo '

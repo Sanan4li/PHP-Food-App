@@ -100,8 +100,7 @@
                                   <th class=""> Name</th>
                                   <th class=""> Product</th>
                                   <th class="numeric">Description</th>
-                                  <th class="numeric">Ingredients</th>
-                                  <!-- <th class="numeric">Discounted From</th>
+                                 <!-- <th class="numeric">Discounted From</th>
                                   <th class="numeric">Quantity</th>
                                     <th class="numeric">Expiry Date</th>
                                     <th class="numeric">Status</th> -->
@@ -136,9 +135,8 @@
                                     //      <td class="numeric">'.$Data["Status"].'</td>
                                     echo '
                                     
-                                    <td class="numeric">'.$Data["Description"].'</td>
-                                    <td class="numeric">'.$Data["Ingredients"].'</td>
-                                       <td class="numeric">
+                                    <td class="numeric ">'.$Data["Description"].'</td>
+                                    <td class="numeric">
                                        
                                        
                                        <a href="EditRecipe.php?edit='.$Data["Id"].'"class="icon"  style="background:none !important"> <span class="glyphicon glyphicon-edit" title="Forward"></span></a>

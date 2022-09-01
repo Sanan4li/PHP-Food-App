@@ -23,7 +23,7 @@
 				<h2>Add New Recipe</h2>
 				<div class="form-row">
 					<label for="name"> Name</label>
-					<input type="text" name="Name" id="name" class="input-text" placeholder="Product Name" required>
+					<input type="text" name="Name" id="name" class="input-text" placeholder="Recipe Name" required>
 					
 				</div>
 	
@@ -57,12 +57,6 @@
 					<label for="Description"> Description</label>
 					<textarea rows="8" class="input-text" cols="76" name="Description" id="Description"></textarea>
 				</div>
-				 <div class="form-row">
-					<label for="Ingredients"> Ingredients</label>
-					<textarea rows="8" class="input-text" cols="76" name="Ingredients" id="Ingredients"></textarea>
-				</div>
-				
-				
 				
                 <div class="form-row">
 					<label for="PrimaryImage">Primary Image</label>
@@ -71,6 +65,20 @@
 				<div class="form-row">
 					<label for="SecondaryImage">Secondary Images (one or more) </label>
 					<input type="file" accept="image/*" placeholder="Upload Secondary Image" name="image[]"  id="SecondaryImage" multiple="true" class="input-text">
+				</div>
+				
+				
+
+				<div id="ingredients">
+				<div class="form-row">
+					<label for="ingredients"> Ingredient 1</label>
+					<textarea rows="8" cols="76" name="Ingredients[]" id="" class="input-text" placeholder="Recipe Ingredient" required></textarea>
+					
+				</div>
+				<input type="hidden" value="1" name="totalIngredients" id="totalIngredients"/>
+				</div>
+				<div>
+					<p class="input-text" style="display:block; color:white; text-decoration:underline; cursor:pointer;" id="addIngredientButton">Add More Ingredient</p>
 				</div>
 				
 				<div id="steps">
@@ -87,19 +95,6 @@
 				<div>
 					<p class="input-text" style="display:block; color:white; text-decoration:underline; cursor:pointer;" id="addStepButton">Add More Step</p>
 				</div>
-
-				<div id="ingredients">
-				<div class="form-row">
-					<label for="ingredients"> Ingredient 1</label>
-					<textarea rows="8" cols="76" name="Ingredients[]" id="" class="input-text" placeholder="Recipe Ingredients" required></textarea>
-					
-				</div>
-				<input type="hidden" value="1" name="totalIngredients" id="totalIngredients"/>
-				</div>
-				<div>
-					<p class="input-text" style="display:block; color:white; text-decoration:underline; cursor:pointer;" id="addIngredientButton">Add More Ingredient</p>
-				</div>
-				
 			
 				<div class="form-row-last">
 					<input type="submit" name="AddRecipe" class="register" value="Add Recipe" id="register">

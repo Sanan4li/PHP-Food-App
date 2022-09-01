@@ -34,8 +34,10 @@ include "Footer.php";
     <div
       class="main-container -mt-60 flex w-full flex-col space-x-0 md:flex-row md:space-x-5"
     >
+    
       <div class="w-full rounded-3xl bg-white py-7 px-6 md:w-1/4">
-        <div class="flex-center flex w-full justify-between">
+    <form>
+      <div class="flex-center flex w-full justify-between">
           <div class="px-2">
             <h1 class="text-2xl font-bold">Filter</h1>
           </div>
@@ -46,9 +48,9 @@ include "Footer.php";
             </a>
           </div>
           <div>
-            <a href="#" class="border-b border-blue-600 text-blue-600">
+            <button type="reset"  class="border-b border-blue-600 text-blue-600">
               Reset
-            </a>
+            </button>
           </div>
           </div>
                    
@@ -109,7 +111,7 @@ include "Footer.php";
   ?>
 
 
-
+</form>
        
       </div>
       <div class="w-full md:w-3/4">

@@ -171,20 +171,26 @@ class Admin{
 
 
     public function AddRecipe(){
-        
+        $Category = 0;
         $Name = $_POST["Name"];
         $Description = $_POST["Description"];
-        $Ingredients = $_POST["Ingredients"];
         $Product = $_POST["Product"];
         $ImageName = $_FILES["PrimaryImage"]["name"];
         $TempImageName = $_FILES["PrimaryImage"]["tmp_name"];
         $SaveImage = "images/".$ImageName;
 
+        $Q = "SELECT * FROM products WHERE Id='$Product'";
+        $R = mysqli_query($this->Connection, $Q);
+        if($R){
+            while($D = mysqli_fetch_assoc($R)){
+                $Category = $D["CategoryId"];
+            }
+        }
 
 
 
-        $Query = "INSERT INTO recipes(Name  , Description, PrimaryImage, ProductId )
-                            Values('$Name' ,  '$Description',  '$SaveImage', '$Product' )";
+        $Query = "INSERT INTO recipes(Name  , Description, PrimaryImage, ProductId, CategoryId )
+                            Values('$Name' ,  '$Description',  '$SaveImage', '$Product', '$Category' )";
         $Result = mysqli_query($this->Connection , $Query);
         move_uploaded_file($TempImageName , $SaveImage);
         if($Result){
