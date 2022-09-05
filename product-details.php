@@ -53,7 +53,7 @@ $CategoryId = 0;
         </div>
       </div>
       <div class="w-full md:w-1/3">
-        <h3 class="text-2xl font-semibold">SKU : <?php echo $Data["SKU"]; ?> </h3>
+        <span class="text-2xl font-semibold">SKU : </span> <span class="text-xl font-medium"> <?php echo $Data["SKU"]; ?> </span> </h3>
         <div class="mt-6">
           <p class="text-xl">Brand :</p>
           <img class="mt-2 max-h-[70px] max-w-[100px] object-cover" src="<?php echo $Data["BrandIcon"]; ?>" alt="" />
@@ -143,7 +143,7 @@ $CategoryId = 0;
             class="mt-10 grid grid-cols-1 py-4 md:grid-cols-2 md:space-y-0 lg:grid-cols-4"
           >
           <?php 
-            $Query = "SELECT * FROM products where CategoryId = '$CategoryId' LIMIT  4";
+            $Query = "SELECT * FROM products where CategoryId = '$CategoryId' LIMIT  5";
             $Result = mysqli_query($Connection, $Query);
             if($Result){
               while($Data = mysqli_fetch_assoc($Result)){
