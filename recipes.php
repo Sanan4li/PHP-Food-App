@@ -36,16 +36,16 @@ include "Footer.php";
     >
     
       <div class="w-full rounded-3xl bg-white py-7 px-6 md:w-1/4">
-    <form>
+    <form action="recipes.php" method="post">
       <div class="flex-center flex w-full justify-between">
           <div class="px-2">
             <h1 class="text-2xl font-bold">Filter</h1>
           </div>
           <div class="flex space-x-4">
           <div>
-            <a href="#" class="bg-primary px-2 py-1 text-white  rounded-md">
+            <button type="submit" class="bg-primary px-2 py-1 text-white  rounded-md">
               Apply
-            </a>
+            </button>
           </div>
           <div>
             <button type="reset"  class="border-b border-blue-600 text-blue-600">
@@ -66,7 +66,7 @@ include "Footer.php";
            <div x-data="{ open: false }">
           <div class="my-2 flex justify-between px-2" x-on:click="open = ! open">
            <div class=" flex w-full items-center space-x-4 ">
-           <input type="checkbox" class="h-4 w-4 " id="test" />
+           <input type="checkbox" value='.$Data["Name"].' name="categories[]" class="h-4 w-4 " id="test" />
            <label class="font-bold cursor-pointer" :class="{ \'text-primary\': open }" id="test">'.$Data["Name"].'</label>
            </div>
            <div class="cursor-pointer">
@@ -119,6 +119,27 @@ include "Footer.php";
           class="grid grid-cols-1 gap-2 gap-y-4 sm:grid-cols-2 lg:grid-cols-3"
         >
         <?php
+        $sql = [];
+        $parameters = [];
+        if(isset($_POST["categories"])){
+          foreach ($_POST['categories'] as $key => $value) {
+            echo "<h1>".$value."</h1>";
+          }
+        }
+        // if ($categorySelected) {
+        //     $sql[] = " STATION_NETWORK = ?";
+        //     $parameters[] = $categorySelected;
+        // }
+        // if ($verticalFilter) {
+        //     $sql[] = " VERTICAL = ?";
+        //     $parameters[] = $verticalFilter;
+        // }
+        
+        // $query = "SELECT * FROM tableName";
+        
+        // if ($sql) {
+        //     $query .= ' WHERE ' . implode(' AND ', $sql);
+        // }
           $Query = "SELECT * FROM recipes";
           $Result = mysqli_query( $Connection, $Query);
           
