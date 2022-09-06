@@ -291,24 +291,25 @@ class Admin{
         $ReasonThree = $_POST["ReasonThree"];
         $ImageName = $_FILES["PrimaryImage"]["name"];
         $SecondaryImageName = $_FILES["SecondaryImage"]["name"];
-        $BrandIcon = $_FILES["BrandIcon"]["name"];
+        // $BrandIcon = $_FILES["BrandIcon"]["name"];
         $TempImageName = $_FILES["PrimaryImage"]["tmp_name"];
-        $TempBrandIcon = $_FILES["BrandIcon"]["tmp_name"];
+        // $TempBrandIcon = $_FILES["BrandIcon"]["tmp_name"];
         $TempImageNameSecondary = $_FILES["SecondaryImage"]["tmp_name"];
         $SaveImage = "images/".$ImageName;
         $SaveImageSecondary = "images/".$SecondaryImageName; 
-        $SaveImageBrand = "images/".$BrandIcon; 
+        // $SaveImageBrand = "images/".$BrandIcon; 
 
         $Pid = $_POST["Pid"];
-        if(!file_exists($_FILES["Image"]["tmp_name"]) || !is_uploaded_file($_FILES["Image"]["tmp_name"])){
+        if(!file_exists($_FILES["PrimaryImage"]["tmp_name"]) || !is_uploaded_file($_FILES["PrimaryImage"]["tmp_name"])){
             $Query = "Update products Set Name = '$Name'  , CategoryId = '$Category' , SKU = '$SKU', CasesPerPallet = '$CasesPerPallet', CasesPerContainer = '$CasesPerContainer', Pack = '$Pack', ShelfLife = '$ShelfLife', PrimaryDescription = '$PrimaryDescription', SecondaryDescription = '$SecondaryDescription', ReasonOne = '$ReasonOne', ReasonTwo = '$ReasonTwo', ReasonThree = '$ReasonThree' Where Id = '$Pid'";
         }
         else{
-            $Query = "Update products Set Name = '$Name'  , CategoryId = '$Category' , SKU = '$SKU', CasesPerPallet = '$CasesPerPallet', CasesPerContainer = '$CasesPerContainer', Pack = '$Pack', ShelfLife = '$ShelfLife', PrimaryDescription = '$PrimaryDescription', SecondaryDescription = '$SecondaryDescription', ReasonOne = '$ReasonOne', ReasonTwo = '$ReasonTwo', ReasonThree = '$ReasonThree' , Image = '$SaveImage' Where Id = '$Pid'";
+            $Query = "Update products Set Name = '$Name'  , CategoryId = '$Category' , SKU = '$SKU', CasesPerPallet = '$CasesPerPallet', CasesPerContainer = '$CasesPerContainer', Pack = '$Pack', ShelfLife = '$ShelfLife', PrimaryDescription = '$PrimaryDescription', SecondaryDescription = '$SecondaryDescription', ReasonOne = '$ReasonOne', ReasonTwo = '$ReasonTwo', ReasonThree = '$ReasonThree' , PrimaryImage = '$SaveImage' Where Id = '$Pid'";
         }
                        
         $Result = mysqli_query($this->Connection , $Query);
         move_uploaded_file($TempImageName , $SaveImage);
+        move_uploaded_file($TempImageNameSecondary , $SaveImageSecondary);
         if($Result){
             
             // echo "Added";

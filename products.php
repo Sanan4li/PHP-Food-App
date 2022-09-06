@@ -1,7 +1,11 @@
 <?php
 include "Navbar.php";
 include "Footer.php";
-$CategoryId = $_GET["CategoryId"];
+$Category = "";
+if(isset($_GET["CategoryId"])){
+
+  $CategoryId = $_GET["CategoryId"];
+}
 $ProductName;
 ?>
 <!DOCTYPE html>
@@ -55,7 +59,12 @@ $ProductName;
         class="mt-10 grid grid-cols-1 content-center py-4 md:grid-cols-2 lg:grid-cols-4"
       >
       <?php
-        $Query = "SELECT * FROM products ";
+      
+      $Query = "SELECT * FROM products ";
+      if($CategoryId!=""){
+         $Query = "SELECT * FROM products WHERE CategoryId='$CategoryId'";
+
+       }
         $Result = mysqli_query($Connection, $Query);
         if($Result){
           

@@ -87,7 +87,7 @@
 				</div>
                 <div class="form-row">
 					<label for="Image">Upload New Primary Image</label>
-					<input type="file" accept="image/*" class="text-input"  placeholder="Upload Image" name="Image" id="Image" value="<?php echo $D["PrimaryImage"]; ?>">
+					<input type="file" accept="image/*" class="text-input"  placeholder="Upload Image" name="SecondaryImage" id="Image" value="<?php echo $D["PrimaryImage"]; ?>">
                 </div>
 				
 				<div class="form-row-last">
