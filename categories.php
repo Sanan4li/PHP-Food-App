@@ -40,7 +40,7 @@ include "Footer.php";
             echo '
             <a href="products.php?CategoryId='.$Data["Id"].'">
            <div
-            class="mt-10 flex flex-col items-center justify-center py-3"
+            class="mt-20 flex flex-col items-center justify-center py-10"
             style="background-image: url(images/productBackground.png)">
             
             <div class="-mt-24">
@@ -53,7 +53,7 @@ include "Footer.php";
               echo '
             <img
                 src="'.$D["PrimaryImage"].'"
-                class="h-[350px] w-[240px] object-cover"
+                class="h-[200px] w-[140px]  object-cover"
                 alt=""
               />';
              }
@@ -61,7 +61,7 @@ include "Footer.php";
             echo '
             </div>
             <div class="py-4">
-              <h2 class="text-3xl font-semibold">'.$Data["Name"].'</h2>
+              <h2 class="text-xl font-semibold">'.$Data["Name"].'</h2>
             </div>
           </div>
 
