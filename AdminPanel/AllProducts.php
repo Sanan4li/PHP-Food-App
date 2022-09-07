@@ -124,7 +124,7 @@
                                   
                                   <td class="numeric">'.$Data["Name"].'</td>
                                   ';
-                                    $NewQuery = "Select * from Category Where Id =".$Data["CategoryId"];
+                                    $NewQuery = "Select * from category Where Id =".$Data["CategoryId"];
                                     $ResultNew = mysqli_query($Connection , $NewQuery);
                                     if($ResultNew){
                                         $D = mysqli_fetch_assoc($ResultNew);

@@ -214,27 +214,21 @@ class Admin{
         if(!$Result){
             echo "<h1?>Something went wrong</h1>";
         }
-        return;
-
         }
     }
     
     public function insertIngredients(){
         // $RecipeId =  mysqli_insert_id($this->Connection);
         foreach ($_POST['Ingredients'] as $key => $value) {
-           $query = "INSERT INTO `recipe_ingredients`( `Name`, `RecipeId`) VALUES ('$value','$this->RecipeIdGlobal')";
+           $query = "INSERT INTO recipe_ingredients( Name, RecipeId) VALUES ('$value','$this->RecipeIdGlobal')";
          
         $Result = mysqli_query($this->Connection, $query);
-            echo $query;
-            echo "<br>";
-            echo $value;
-            echo $this->RecipeIdGlobal;
         if(!$Result){
             echo "<h1?>Something went wrong</h1>";
         }
-        return;
-
-        }
+        
+    }
+    header("location:AdminPanel/AllRecipes.php?RecipeAdded");
     }
 
     
