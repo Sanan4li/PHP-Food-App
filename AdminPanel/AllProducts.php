@@ -1,3 +1,7 @@
+  <?php
+        include("./Sessions.php");
+        CheckSessions();
+      ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,10 +35,6 @@
   </head>
 
   <body>
-  <?php
-        include("./Sessions.php");
-        CheckSessions();
-      ?>
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
@@ -114,7 +114,7 @@
                                
                                  $C = new DataBaseConnection();
                                  $Connection = $C->Connect();
-                                  $Query = "Select *from Products";
+                                  $Query = "Select *from products";
                                   $Result = mysqli_query($Connection , $Query);
                                   if($Result){
                                       while($Data = mysqli_fetch_assoc($Result)){

@@ -56,7 +56,7 @@ $ProductName;
    
     <div class="main-container lg-mt-96 -mt-80">
       <div
-        class="mt-10 grid grid-cols-1 content-center py-4 md:grid-cols-2 lg:grid-cols-4"
+        class="mt-10 grid grid-cols-1 content-center py-4 gap-y-20 md:grid-cols-2 lg:grid-cols-4"
       >
       <?php
       
