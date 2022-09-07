@@ -1,3 +1,7 @@
+<?php
+        include("./Sessions.php");
+        CheckSessions();
+    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,10 +29,7 @@
     <script src="assets/js/chart-master/Chart.js"></script>
  
   </head>
-    <?php
-        include("./Sessions.php");
-        CheckSessions();
-    ?>
+   
   <body>
 
   <section id="container" >

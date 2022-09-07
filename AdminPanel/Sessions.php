@@ -1,8 +1,5 @@
-     <?php
-                    
+     <?php            
          include "../Admin.php";
-            
-        
       function CheckSessions(){
         $New = new Admin();
         $New->CheckSession();

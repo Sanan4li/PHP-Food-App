@@ -1,5 +1,9 @@
 <?php
 
+if((isset($_SESSION["AdminEmail"])) && (isset($_SESSION["AdminPassword"]))){
+	header("location:AdminPanel/AdminPanel.php");
+}
+
     include("Admin.php");
     // if(isset($_SESSION["page"])){
     //     $N = new Customer();
@@ -24,13 +28,6 @@
 
 </head>
 <body class="form-v5">
-<?php
-    
-    if((isset($_SESSION["AdminEmail"])) && (isset($_SESSION["AdminPassword"]))){
-         header("location:AdminPanel/AdminPanel.php");
-     }
- 
-   ?>
 	<div class="page-content">
    
 		<div class="form-v5-content">

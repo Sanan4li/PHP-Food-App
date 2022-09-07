@@ -1,3 +1,7 @@
+<?php
+        include("./Sessions.php");
+        CheckSessions();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -13,10 +17,6 @@
 	<link rel="stylesheet" href="form/css/style.css"/>
 
 </head>
-<?php
-        include("./Sessions.php");
-        CheckSessions();
-?>
 
 
 

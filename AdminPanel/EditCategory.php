@@ -1,3 +1,7 @@
+    <?php
+        include("./Sessions.php");
+        CheckSessions();
+      ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +23,6 @@
 </head>
 <body class="form-v5">
 	<div class="page-content">
-    <?php
-        include("./Sessions.php");
-        CheckSessions();
-      ?>
 		<div class="form-v5-content">
 			<form class="form-detail" action="../Admin.php" method="post"   enctype="multipart/form-data">
 				<h2>Edit Category</h2>
