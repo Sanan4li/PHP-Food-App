@@ -45,7 +45,7 @@ include "Footer.php";
                 </h1>
 
                 <div class="mt-12">
-                  <a href="#" class="button"> Learn More </a>
+                  <a href="about-us.php" class="button"> Learn More </a>
                 </div>
               </div>
             </div>
@@ -152,11 +152,10 @@ include "Footer.php";
           <div class="h-full w-full md:w-1/2">
             <h1 class="heading">Our Services</h1>
             <p class="mt-8 text-lg">
-              With our extensive network, our services connect your products
-              with the wider marketplace
+            We are a global partner poised to deliver local market needs in the different regions we operate. The core of our business is modern trade distribution, export services and supermarket chain OEM services.
             </p>
             <div class="mt-8">
-              <a href="#" class="button">Learn More</a>
+              <a href="services.php" class="button">Learn More</a>
             </div>
           </div>
         </div>
@@ -170,15 +169,10 @@ include "Footer.php";
           <div class="w-full md:w-1/2">
             <h1 class="heading">Message from Us</h1>
             <p class="mt-8">
-              Magna ut diam tortor malesuada cursus faucibus. Netus tincidunt
-              suspendisse at feugiat neque sit. Mattis felis pretium, blandit
-              in. Risus massa, at aenean sociis lectus magna felis. Purus
-              volutpat vitae varius donec massa cras lacus sit. Fusce commodo
-              lectus rutrum nibh. Sit nam varius amet, consequat nunc tellus
-              ullamcorper amet in.
+            At Rohstoff Handel, we understand the importance of good food and how it forms a major part of promoting cultures and traditions. That is why we are committed to providing the best sustainable products that will continue to stand the test of time. We do not compromise on taste!
             </p>
             <div class="mt-8">
-              <a href="#" class="button"> Get in Touch </a>
+              <a href="contact-us.php" class="button"> Get in Touch </a>
             </div>
           </div>
           <div class="w-full md:w-1/2">

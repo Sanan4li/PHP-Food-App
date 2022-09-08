@@ -27,10 +27,7 @@ include "Footer.php";
           <div class="flex w-full flex-col justify-center p-2 md:p-4 md:w-1/2">
             <h2 class="text-2xl font-bold text-primary">About Us</h2>
             <p class="mt-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-              perspiciatis maiores placeat minima, illo obcaecati totam sapiente
-              voluptas, voluptates neque modi! Perspiciatis fuga eligendi sint
-              totam alias quasi aliquam explicabo.
+            Rohstoff Handel offers great tasting nutritious products at the best possible price. Our product range is made from the best raw materials using sustainable production processes. Our customers enjoy the rich taste of our product varieties. From our cooking creams that can be used to prepare mouth-watering meals to our pasta, biscuit, cocoa, beverage, legumes and vegetable products, we provide our customers with the opportunity to create fond memories through food. 
             </p>
           </div>
           <div class="w-full md:w-1/2">
@@ -131,10 +128,7 @@ include "Footer.php";
           >
             <h2 class="text-2xl font-bold">Our Culture</h2>
             <p class="mt-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-              perspiciatis maiores placeat minima, illo obcaecati totam sapiente
-              voluptas, voluptates neque modi! Perspiciatis fuga eligendi sint
-              totam alias quasi aliquam explicabo.
+            Our culture and values reflect our commitment to never compromise on taste and quality. We are committed to being a quality-driven company that holds ourselves accountable for results. At Rohstoff Handel, we are continuously eager to create a culture of belonging that promoted family value through our food and drink products. 
             </p>
           </div>
           <div class="w-full md:w-1/2">

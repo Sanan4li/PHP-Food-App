@@ -93,7 +93,7 @@ include "Footer.php";
 
         <div class="flex flex-col rounded-[32px] bg-white p-5 md:flex-row">
           <div class="w-full p-4 md:w-1/2">
-            <h2 class="text-2xl font-bold">Modern Trade Distribution</h2>
+            <h2 class="text-2xl font-bold">Supermarket Chain OEM Services</h2>
             <p class="mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
               perspiciatis maiores placeat minima, illo obcaecati totam sapiente
