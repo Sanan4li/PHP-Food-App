@@ -30,18 +30,18 @@ include "Footer.php";
                 <h1
                   class="my-2 bg-white/80 px-2 py-2 font-heading text-2xl font-extrabold text-black lg:text-5xl"
                 >
-                  World Class Products
+                  World Class Products.
                 </h1>
                 <h1
                   class="my-2 bg-white/80 px-2 py-2 font-heading text-2xl font-extrabold text-black lg:text-5xl"
                 >
-                  Excellent Distribution
+                  Excellent Distribution.
                 </h1>
 
                 <h1
                   class="my-2 bg-white/80 px-2 py-2 font-heading text-2xl font-extrabold text-black lg:text-5xl"
                 >
-                  Global Network
+                  Global Network.
                 </h1>
 
                 <div class="mt-12">
@@ -55,7 +55,7 @@ include "Footer.php";
     </div>
     <div class="main-container -z-10 py-28">
       <h1 class="heading w-full px-10 md:w-1/2">
-        We Offer a Wide Range of products and commodities
+        We Offer a Wide Range of Products and Commodities
       </h1>
       <div class="relative m-auto max-w-7xl px-10 py-12">
         <div class="fade mySlides relative hidden px-5">
@@ -190,7 +190,7 @@ include "Footer.php";
       <div class="">
         <h1 class="heading text-center">Recipe Hub</h1>
         <div
-          class="mt-10 grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          class="mt-10 grid grid-cols-2 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
         <?php
           $Query = "SELECT * FROM recipes LIMIT 4 ";
@@ -200,19 +200,22 @@ include "Footer.php";
             while($Data = mysqli_fetch_assoc($Result)){
               echo '
              <a href="recipe-details.php?RecipeId='.$Data["Id"].'">
-             <div class="w-full min-w-[300px] rounded-[32px] bg-white p-2">
+             <div class="w-full rounded-[32px] bg-white p-2 md:min-w-[300px]">
              <div>
                <img
                  src="'.$Data["PrimaryImage"].'"
-                 class="h-[230px] w-full max-w-full rounded-3xl object-cover"
+                 class="h-auto w-full max-w-full rounded-3xl object-cover md:h-[230px]"
                  alt=""
                />
              </div>
              <div class="p-3">
-               <h2 class="text-center text-2xl font-bold recipe-heading">'.$Data["Name"].'</h2>
+               <h2 class="text-center font-semibold md:text-2xl md:font-bold recipe-heading">'.$Data["Name"].'</h2>
+               <div class="hidden sm:block">
                <p class="mt-4 text-center recipe-description">
-                 '.$Data["Description"].'
-               </p>
+               '.$Data["Description"].'
+             </p>
+               </div>
+              
              </div>
            </div>
              </a>

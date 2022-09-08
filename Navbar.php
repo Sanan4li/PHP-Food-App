@@ -76,13 +76,13 @@ function displayNavbar($About, $Products, $Services, $Contact, $Recipes){
         </div>
         <div class="mt-5 flex flex-col lg:flex-row">
           <a
-            class="my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
+            class="my-2 py-2 text-base  text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
             href="about-us.php"
             >About Us</a
           >
           <div class="relative group cursor-pointer py-2">
           <div class="flex items-center justify-between">
-            <a class="menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500  md:my-0 lg:mx-4 lg:my-0" onClick="">
+            <a class="menu-hover my-2 py-2 text-base  text-black hover:text-blue-500  md:my-0 lg:mx-4 lg:my-0" onClick="">
               Our Product Range
             </a>
             <span>
@@ -134,18 +134,18 @@ echo '
           </div>
         </div>
           <a
-            class="my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
+            class="my-2 py-2 text-base  text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
             href="services.php"
           >
             Our Services</a
           >
           <a
-            class="my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
+            class="my-2 py-2 text-base  text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
             href="contact-us.php"
             >Contact Us</a
           >
           <a
-            class="my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
+            class="my-2 py-2 text-base  text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
             href="recipes.php"
             >Recipe Hub</a
           >
@@ -160,12 +160,12 @@ echo '
       <div class="items-center hidden lg:flex">
         <div class="flex flex-col lg:mx-6 lg:flex-row">
           <a
-            class="'.$About.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
+            class="'.$About.' menu-hover my-2 py-2 text-base  text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
             href="about-us.php"
             >About Us</a
           >
           <div class="relative group cursor-pointer py-2">
-          <a class="'.$Products.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500  md:my-0 lg:mx-4 lg:my-0" href="categories.php">
+          <a class="'.$Products.' menu-hover my-2 py-2 text-base  text-black hover:text-blue-500  md:my-0 lg:mx-4 lg:my-0" href="categories.php">
             Our Product Range
           </a>
           <div
@@ -212,18 +212,18 @@ echo '
           </div>
         </div>
           <a
-            class="'.$Services.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
+            class="'.$Services.' menu-hover my-2 py-2 text-base  text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
             href="services.php"
           >
             Our Services</a
           >
           <a
-            class="'.$Contact.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
+            class="'.$Contact.' menu-hover my-2 py-2 text-base  text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
             href="contact-us.php"
             >Contact Us</a
           >
           <a
-            class="'.$Recipes.' menu-hover my-2 py-2 text-base font-medium text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
+            class="'.$Recipes.' menu-hover my-2 py-2 text-base  text-black hover:text-blue-500 dark:hover:text-blue-400 md:my-0 lg:mx-4 lg:my-0"
             href="recipes.php"
             >Recipe Hub</a
           >

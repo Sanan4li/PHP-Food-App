@@ -134,11 +134,13 @@ $ProductId =-1;
           <div
             class="mt-10 flex w-full items-center justify-center rounded-full bg-white p-10 md:w-2/3"
           >
-            <img
-              src="'.$Data["PrimaryImage"].'"
-              class="max-w-[170px]"
-              alt=""
-            />
+           <a href="product-details.php?ProductId='.$Data["Id"].'">
+           <img
+           src="'.$Data["PrimaryImage"].'"
+           class="max-w-[170px]"
+           alt=""
+         />
+           </a>
           </div>
      
      ';
