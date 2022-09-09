@@ -26,20 +26,20 @@ include "Footer.php";
         <div class="container mx-auto h-full max-h-[700px] px-6">
           <div class="h-full items-center lg:flex">
             <div class="flex h-full w-full flex-col justify-center">
-              <div class="w-full md:w-1/2">
+              <div class="w-full md:w-auto">
                 <h1
-                  class="my-2 bg-white/80 px-2 py-2 font-heading text-2xl font-extrabold text-black lg:text-5xl"
+                  class="my-2 max-w-fit bg-white/80 px-2 py-2 font-heading text-2xl font-extrabold text-black lg:text-6xl"
                 >
                   World Class Products.
                 </h1>
                 <h1
-                  class="my-2 bg-white/80 px-2 py-2 font-heading text-2xl font-extrabold text-black lg:text-5xl"
+                  class="my-2 max-w-fit bg-white/80 px-2 py-2 font-heading text-2xl font-extrabold text-black lg:text-6xl"
                 >
                   Excellent Distribution.
                 </h1>
 
                 <h1
-                  class="my-2 bg-white/80 px-2 py-2 font-heading text-2xl font-extrabold text-black lg:text-5xl"
+                  class="my-2 max-w-fit bg-white/80 px-2 py-2 font-heading text-2xl font-extrabold text-black lg:text-6xl"
                 >
                   Global Network.
                 </h1>
@@ -53,7 +53,9 @@ include "Footer.php";
         </div>
       </div>
     </div>
-    <div class="main-container -z-10 py-28">
+    <div class="relative overflow-hidden">
+      <div class="-z-10 py-28  bg-white">
+    <div class="main-container">
       <h1 class="heading w-full px-10 md:w-1/2">
         We Offer a Wide Range of Products and Commodities
       </h1>
@@ -133,12 +135,14 @@ include "Footer.php";
           onclick="currentSlide(3)"
         ></span>
       </div>
-    </div>
-    <div class="relative z-10 overflow-hidden">
       <div
-        class="absolute -top-40 -right-52 z-50 hidden h-[500px] w-[500px] overflow-hidden rounded-full bg-red-500 object-cover md:block"
-        style="background-image: url(images/worldrounded.png)"
-      ></div>
+            class="absolute bottom-96 -right-52 z-50 hidden h-[500px] w-[500px] overflow-hidden rounded-full bg-red-500 object-cover md:block"
+            style="background-image: url(images/worldrounded.png)"
+          ></div>
+    </div>
+</div>
+    <div class="relative z-10 overflow-hidden">
+      
       <div class="main-container py-28">
         <div
           class="mx-auto flex w-full flex-col items-center justify-between space-y-28 md:w-3/4 md:flex-row md:space-y-0 md:space-x-28"
@@ -160,7 +164,9 @@ include "Footer.php";
           </div>
         </div>
       </div>
+      
     </div>
+</div>
     <div class="bg-white">
       <div class="main-container relative py-24">
         <div
