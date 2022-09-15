@@ -87,6 +87,25 @@ class Admin{
         }
     }
     
+
+
+    public function DeleteBrand($id){
+        echo $id;
+       $Query = "DELETE from brands WHERE Id = $id";
+       echo $Query;
+           $Result  = mysqli_query($this->Connection , $Query);
+       if($Result){
+             $Page = $_GET["Page"];
+           
+           header("location:AdminPanel/".$Page.".php?Deleted=1");
+       }
+       else{
+           $Page = $_GET["Page"];
+           
+           header("location:AdminPanel/".$Page.".php?Error=1");
+       }
+   }
+   
     
     // function to delete
     
@@ -178,7 +197,6 @@ class Admin{
         $Query = "INSERT INTO brands(Name  , Image )
                             Values('$Name' ,   '$SaveIcon' )";
         $Result = mysqli_query($this->Connection , $Query);
-        move_uploaded_file($TempImageName , $SaveImage);
         move_uploaded_file($TempIconName , $SaveIcon);
         if($Result){
           
@@ -381,7 +399,6 @@ class Admin{
         $SaveImage = "images/".$ImageName;
         // $SaveIcon = "images/".$IconName;
         if(!file_exists($_FILES["Image"]["tmp_name"]) || !is_uploaded_file($_FILES["Image"]["tmp_name"])){
-            echo "fuck";
             $Query = "UPDATE category SET Name= '$Name', Description = '$Description',  BrandId='$Brand'  Where  Id='$CatId'";
         }
         else{
@@ -394,6 +411,35 @@ class Admin{
         echo $Result;
         if($Result){
             header("Location:AdminPanel/AllCategories.php?Edited");
+        }
+        else{
+            echo "<h1>Error!</h1>";
+        }
+    }
+        // function to edit brand
+    public function EditBrand(){
+        $BrandId = $_POST["BrandId"];
+        $Name  = $_POST["Name"];
+        $ImageName = $_FILES["Image"]["name"];
+        // $IconName = $_FILES["Icon"]["name"];
+       
+        $TempImageName = $_FILES["Image"]["tmp_name"];
+        // $TempIconName = $_FILES["Icon"]["tmp_name"];
+        $SaveImage = "images/".$ImageName;
+        // $SaveIcon = "images/".$IconName;
+        if(!file_exists($_FILES["Image"]["tmp_name"]) || !is_uploaded_file($_FILES["Image"]["tmp_name"])){
+            $Query = "UPDATE brands SET Name= '$Name',   Where  Id='$BrandId'";
+        }
+        else{
+            $Query = "UPDATE brands SET Name= '$Name', Image = '$SaveImage',   Where  Id='$BrandId'";
+            move_uploaded_file($TempImageName , $SaveImage);
+        }
+
+        $Result = mysqli_query($this->Connection , $Query);
+        // move_uploaded_file($TempIconName , $SaveIcon);
+        echo $Result;
+        if($Result){
+            header("Location:AdminPanel/AllBrands.php?Edited");
         }
         else{
             echo "<h1>Error!</h1>";
@@ -509,6 +555,11 @@ if(isset($_GET["deleteCat"])){
     $id = $_GET["deleteCat"];
     $N->DeleteCategory($id);
 }
+if(isset($_GET["deleteBrand"])){
+   
+    $id = $_GET["deleteBrand"];
+    $N->DeleteBrand($id);
+}
 if(isset($_GET["deleteM"])){
     $id = $_GET["deleteM"];
     $N->DeleteMessage($id);
@@ -538,6 +589,9 @@ if(isset($_POST["EditProduct"])){
 }
 if(isset($_POST["EditCategory"])){
     $N->EditCategory();
+}
+if(isset($_POST["EditBrand"])){
+    $N->EditBrand();
 }
 
 

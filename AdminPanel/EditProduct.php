@@ -44,23 +44,17 @@
 					<select class="gender" name="Category">
                         
 									<?php
-							$Query = "SELECT * from categories Where Id=".$D["CategoryId"];
-							$Result = mysqli_query($Connection , $Query);
 							
-							if($Result) {
-                                $Data = mysqli_fetch_assoc($Result);
-                                echo '<option value="'.$Data["Id"].'">'.$Data["Name"].'</option>';
-                            }
-                            else{
-								echo "<h1>Error</h1>";
-                            }
                             
                             $Query = "SELECT * from category";
                             $Result1 = mysqli_query($Connection , $Query);
-                            while($Data1 = mysqli_fetch_assoc($Result1)){
-                                    if($Data["Id"]!=$Data1["Id"]){
-                                        echo '<option value="'.$Data1["Id"].'">'.$Data1["Name"].'</option>';  
+                            while($Data = mysqli_fetch_assoc($Result1)){
+                                    if($Data["Id"]==$D["CategoryId"]){
+                                        echo '<option value="'.$Data["Id"].'" selected>'.$Data["Name"].'</option>';  
                                     }
+									else{
+										echo '<option value="'.$Data["Id"].'">'.$Data["Name"].'</option>';
+									}
                                       
                                       }
 							

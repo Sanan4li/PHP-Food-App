@@ -53,7 +53,7 @@
       <!--sidebar start-->
       <?php
         include("./Sidebar.php");
-        DisplaySideBar("", "", "","active", "", "","", "","", "");
+        DisplaySideBar("", "active", "","", "", "","", "","", "");
       ?>
       <!--sidebar end-->
       

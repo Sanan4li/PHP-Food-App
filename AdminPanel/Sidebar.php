@@ -31,7 +31,7 @@ function DisplaySideBar($One, $Two, $Three, $Four, $Four2, $Five, $Six, $Seven, 
                       </a>
                   </li>
                    <li class="my">
-                      <a class="'.$Four2.'" href="AllBrands.php">
+                      <a class="'.$Two.'" href="AllBrands.php">
                       <i class="glyphicon glyphicon-th-large"></i>
                       <span>Brands</span>
                       </a>
