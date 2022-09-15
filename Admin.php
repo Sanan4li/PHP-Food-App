@@ -148,21 +148,41 @@ class Admin{
     public function AddCategory(){
         $Name = $_POST["Name"];
         $Description = $_POST["Description"];
+        $Brand = $_POST["Brand"];
         $ImageName = $_FILES["Image"]["name"];
-        $IconName = $_FILES["Icon"]["name"];
+        // $IconName = $_FILES["Icon"]["name"];
        
         $TempImageName = $_FILES["Image"]["tmp_name"];
-        $TempIconName = $_FILES["Icon"]["tmp_name"];
+        // $TempIconName = $_FILES["Icon"]["tmp_name"];
         $SaveImage = "images/".$ImageName;
+        // $SaveIcon = "images/".$IconName;
+        $Query = "INSERT INTO category(Name  , Description, BackgroundImage, BrandId )
+                            Values('$Name' ,  '$Description', '$SaveImage', '$Brand' )";
+        $Result = mysqli_query($this->Connection , $Query);
+        move_uploaded_file($TempImageName , $SaveImage);
+        // move_uploaded_file($TempIconName , $SaveIcon);
+        if($Result){
+          
+             header("location:AdminPanel/AllCategories.php?CategoryAdded");
+        }
+        else{
+            echo "Error";
+        }
+    }
+    
+    public function AddBrand(){
+        $Name = $_POST["Name"];
+        $IconName = $_FILES["Icon"]["name"];   
+        $TempIconName = $_FILES["Icon"]["tmp_name"];
         $SaveIcon = "images/".$IconName;
-        $Query = "INSERT INTO category(Name  , Description, BackgroundImage, CategoryIcon )
-                            Values('$Name' ,  '$Description', '$SaveImage', '$SaveIcon' )";
+        $Query = "INSERT INTO brands(Name  , Image )
+                            Values('$Name' ,   '$SaveIcon' )";
         $Result = mysqli_query($this->Connection , $Query);
         move_uploaded_file($TempImageName , $SaveImage);
         move_uploaded_file($TempIconName , $SaveIcon);
         if($Result){
           
-             header("location:AdminPanel/AllCategories.php?CategoryAdded");
+             header("location:AdminPanel/AllBrands.php?BrandAdded");
         }
         else{
             echo "Error";
@@ -352,23 +372,25 @@ class Admin{
         $CatId = $_POST["CatId"];
         $Name  = $_POST["Name"];
         $Description  = $_POST["Description"];
+        $Brand  = $_POST["Brand"];
         $ImageName = $_FILES["Image"]["name"];
-        $IconName = $_FILES["Icon"]["name"];
+        // $IconName = $_FILES["Icon"]["name"];
        
         $TempImageName = $_FILES["Image"]["tmp_name"];
-        $TempIconName = $_FILES["Icon"]["tmp_name"];
+        // $TempIconName = $_FILES["Icon"]["tmp_name"];
         $SaveImage = "images/".$ImageName;
-        $SaveIcon = "images/".$IconName;
+        // $SaveIcon = "images/".$IconName;
         if(!file_exists($_FILES["Image"]["tmp_name"]) || !is_uploaded_file($_FILES["Image"]["tmp_name"])){
-            $Query = "UPDATE category SET Name= '$Name', Description = '$Description' Where  Id='$CatId'";
+            echo "fuck";
+            $Query = "UPDATE category SET Name= '$Name', Description = '$Description',  BrandId='$Brand'  Where  Id='$CatId'";
         }
         else{
-            $Query = "UPDATE category SET Name= '$Name', Description = '$Description', BackgroundImage = '$SaveImage', CategoryIcon='$SaveIcon'  Where  Id='$CatId'";
+            $Query = "UPDATE category SET Name= '$Name', Description = '$Description', BackgroundImage = '$SaveImage', BrandId='$Brand'  Where  Id='$CatId'";
+            move_uploaded_file($TempImageName , $SaveImage);
         }
 
         $Result = mysqli_query($this->Connection , $Query);
-        move_uploaded_file($TempImageName , $SaveImage);
-        move_uploaded_file($TempIconName , $SaveIcon);
+        // move_uploaded_file($TempIconName , $SaveIcon);
         echo $Result;
         if($Result){
             header("Location:AdminPanel/AllCategories.php?Edited");
@@ -498,6 +520,9 @@ if(isset($_POST["EditProfile"])){
 }
 if(isset($_POST["AddCategory"])){
     $N->AddCategory();
+}
+if(isset($_POST["AddBrand"])){
+    $N->AddBrand();
 }
 if(isset($_POST["AddRecipe"])){
     $N->AddRecipe();

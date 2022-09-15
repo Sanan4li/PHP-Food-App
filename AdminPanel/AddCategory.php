@@ -17,6 +17,10 @@
     }
     </style>
 </head>
+<?php
+        include("./Sessions.php");
+        CheckSessions();
+      ?>
 <body class="form-v5">
 	<div class="page-content">
 		<div class="form-v5-content">
@@ -32,13 +36,37 @@
 					<textarea rows="10" cols="76" class="input-text" name="Description" id="Description"></textarea>
 				</div>
 				<div class="form-row">
+					<label for="Brand">Brand</label>
+					<select class="gender" name="Brand">
+									<?php
+							$C = new DataBaseConnection();
+							$Connection = $C->Connect();
+							$Query = "SELECT * from brands";
+							$Result = mysqli_query($Connection , $Query);
+							
+							if($Result){
+								$Rows = mysqli_num_rows($Result);
+                                      if($Rows!=0){
+										while($Data = mysqli_fetch_assoc($Result)){
+											echo '<option value="'.$Data["Id"].'">'.$Data["Name"].'</option>';
+                                      }
+							}
+						}
+							else{
+								echo "<h1>Error</h1>";
+							}
+						?>
+                        
+                    </select>
+				</div>
+				<div class="form-row">
 						<label for="Image">Image</label>
 						<input type="file" accept="image/*" placeholder="Upload Image" class="input-text" name="Image" id="Image">
 				</div>
-				<div class="form-row">
+				<!-- <div class="form-row">
 						<label for="Icon">Brand Icon</label>
 						<input type="file" accept="image/*" placeholder="Upload Icon for category" class="input-text" name="Icon" id="Icon">
-				</div>
+				</div> -->
 				
 				<div class="form-row-last">
 					<input type="submit" name="AddCategory" class="register" value="Add Category">

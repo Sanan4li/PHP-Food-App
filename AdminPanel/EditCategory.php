@@ -47,21 +47,45 @@
 					<textarea rows="10" cols="76" name="Description" class="input-text" id="Description"><?php echo $D["Description"]; ?> </textarea>
 				</div>
 				<div class="form-row">
+					<label for="Brand">Brand</label>
+					<select class="gender" name="Brand">
+									<?php
+							
+							$Query = "SELECT * from brands";
+							$Result = mysqli_query($Connection , $Query);
+							
+							if($Result){
+								$Rows = mysqli_num_rows($Result);
+                                      if($Rows!=0){
+										
+										while($Data = mysqli_fetch_assoc($Result)){
+											if($Data["Id"]== $D["BrandId"]){
+												echo '<option value="'.$Data["Id"].'" selected>'.$Data["Name"].'</option>';
+											}
+											else{
+												
+															echo '<option value="'.$Data["Id"].'">'.$Data["Name"].'</option>';
+											}
+                                      }
+								
+							}
+						}
+							else{
+								echo "<h1>Error</h1>";
+							}
+						?>
+                        
+                    </select>
+				</div>
+				<div class="form-row">
 					<label for="Image" >Image Uploaded</label>
                     <img height="400"  width="570" src="../<?php echo $D["BackgroundImage"]; ?>">
 				</div>
 				<div class="form-row">
-					<label for="Image">Upload New Image</label>
-					<input type="file" accept="image/*"  placeholder="Upload Image" class="text-input" name="BackgroundImage" id="Image" value="<?php echo $D['CategoryIcon']; ?>">
-                </div>
-				<div class="form-row">
-					<label for="Image">Brand Icon Uploaded</label>
-                    <img height="100" width="100" class="text-input" src="../<?php echo $D["CategoryIcon"]; ?>">
+						<label for="Image">New Image</label>
+						<input type="file" accept="image/*" placeholder="Upload Image" class="input-text" name="Image" value="<?php echo $D["BackgroundImage"]; ?>" id="Image">
 				</div>
-				<div class="form-row">
-						<label for="Icon">Upload New Brand Icon</label>
-						<input type="file" accept="image/*" placeholder="Upload Icon for category" class="input-text" name="Icon" id="Icon" value="<?php echo $D['CategoryIcon']; ?>">
-				</div>
+				
 				
 				<div class="form-row-last">
 					<input type="submit" name="EditCategory" class="register" value="Edit Category">

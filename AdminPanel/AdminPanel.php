@@ -77,7 +77,7 @@
                                         if($Result){
                                             $TotalProducts = mysqli_num_rows($Result);
                                             echo '
-                                            <h3>Total products '.$TotalProducts.'</h3>
+                                            <h3>Total products : '.$TotalProducts.'</h3>
                                             </div>
                                             <p >You have '.$TotalProducts.' total products in your database.</p>
                                             ';
@@ -100,7 +100,7 @@
                                         if($Result){
                                             $CategoryCount = mysqli_num_rows($Result);
                                             echo '
-                                            <h3> Total categories '.$CategoryCount.'</h3>
+                                            <h3> Total categories : '.$CategoryCount.'</h3>
                                             </div>
                                             <p>You have'.$CategoryCount.' categories in the database.</p>
                                             ';
@@ -120,7 +120,7 @@
                                         if($Result){
                                             $RecipesCount = mysqli_num_rows($Result);
                                             echo '
-                                            <h3> Total recipes '.$RecipesCount.'</h3>
+                                            <h3> Total recipes : '.$RecipesCount.'</h3>
                                             </div>
                                             <p>You have '.$RecipesCount.' recipes in the database.</p>
                                             ';
@@ -144,9 +144,28 @@
                                         if($Result){
                                             $NewOrders = mysqli_num_rows($Result);
                                             echo '
-                                            <h3> New Messaged '.$NewOrders.'</h3>
+                                            <h3> New Messaged : '.$NewOrders.'</h3>
                                             </div>
                                             <p >You have '.$NewOrders.' total messages. Check now .</p>
+                                            ';
+                                             
+                                        }
+                                  ?>
+                            </a>
+                  		</div> 
+                        
+                        <div class="col-md-4 col-sm-2 box0">
+                  			<a href="AllBrands.php">
+                            <div class="box1">
+					  			<span class="li_mail"></span>
+                                  <?php $Query = "SELECT * from brands";
+                                        $Result = mysqli_query($Connection, $Query);
+                                        if($Result){
+                                            $NewOrders = mysqli_num_rows($Result);
+                                            echo '
+                                            <h3> Total Brands : '.$NewOrders.'</h3>
+                                            </div>
+                                            <p >You have '.$NewOrders.' brands .</p>
                                             ';
                                              
                                         }
