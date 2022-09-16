@@ -425,20 +425,22 @@ class Admin{
     public function EditBrand(){
         $BrandId = $_POST["BrandId"];
         $Name  = $_POST["Name"];
+        $Description  = $_POST["Description"];
         $ImageName = $_FILES["Image"]["name"];
-        // $IconName = $_FILES["Icon"]["name"];
+        $BackgroundImageName = $_FILES["BackgroundImage"]["name"];
        
         $TempImageName = $_FILES["Image"]["tmp_name"];
-        // $TempIconName = $_FILES["Icon"]["tmp_name"];
+        $TempBackgroundImageName = $_FILES["BackgroundImage"]["tmp_name"];
         $SaveImage = "images/".$ImageName;
-        // $SaveIcon = "images/".$IconName;
+        $SaveBackgroundImage = "images/".$TempBackgroundImageName;
         if(!file_exists($_FILES["Image"]["tmp_name"]) || !is_uploaded_file($_FILES["Image"]["tmp_name"])){
-            $Query = "UPDATE brands SET Name= '$Name',   Where  Id='$BrandId'";
+            $Query = "UPDATE brands SET Name= '$Name', Description= '$Description'   Where  Id='$BrandId'";
         }
         else{
-            $Query = "UPDATE brands SET Name= '$Name', Image = '$SaveImage',   Where  Id='$BrandId'";
-            move_uploaded_file($TempImageName , $SaveImage);
+            $Query = "UPDATE brands SET Name= '$Name', Description= '$Description', Image = '$SaveImage', BackgroundImage = '$SaveBackgroundImage'    Where  Id='$BrandId'";
         }
+        move_uploaded_file($TempImageName , $SaveImage);
+        move_uploaded_file($TempBackgroundImageName , $SaveBackgroundImage);
 
         $Result = mysqli_query($this->Connection , $Query);
         // move_uploaded_file($TempIconName , $SaveIcon);

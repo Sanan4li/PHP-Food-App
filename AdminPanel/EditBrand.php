@@ -32,7 +32,7 @@
                          $Bid = $_GET["edit"];
                          $C = new DataBaseConnection();
                          $Connection = $C->Connect();
-                         $Query1 = "SELECT * from brands where id =".$Bid;
+                         $Query1 = "SELECT * from brands where Id = '$Bid'";
                                  $Result1 = mysqli_query($Connection , $Query1);
                          if($Result1){
                              $D = mysqli_fetch_assoc($Result1);
@@ -43,7 +43,18 @@
                 </div>
                     <input type="hidden" value="<?php echo $D["Id"]; ?>" name="BrandId" >
 				
-			
+					<div class="form-row">
+					<label for="Description">Description</label>
+					<textarea rows="10" cols="76" class="input-text" name="Description" id="Description"><?php echo $D["Description"]; ?></textarea>
+				</div>
+				<div class="form-row">
+					<label for="Image" >Background Image Uploaded</label>
+                    <img height="300"  width="500" class="object-cover" src="../<?php echo $D["BackgroundImage"]; ?>">
+				</div>
+				<div class="form-row">
+						<label for="Image">New Background Image</label>
+						<input type="file" accept="image/*" placeholder="Upload Image" class="input-text" name="BackgroundImage" value="<?php echo $D["BackgroundImage"]; ?>" id="Image">
+				</div>
 				<div class="form-row">
 					<label for="Image" >Image Uploaded</label>
                     <img height="100"  width="100" src="../<?php echo $D["Image"]; ?>">
