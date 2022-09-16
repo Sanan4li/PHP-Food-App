@@ -18,7 +18,7 @@ $ProductName;
     <title>Products</title>
   </head>
   <body class="w-full bg-background" id="body">
-    <div class="w-full bg-white">
+    <div class="w-full bg-white relative z-10">
       <div class="main-container">
       <?php displayNavbar("", "active-menu", "", "", ""); ?>
       </div>
@@ -32,13 +32,23 @@ $ProductName;
         $ProductName = $Data["Name"];
         echo '
         <div
-        class="relative -z-10 h-[660px] w-full object-cover"
+        class="relative  h-[660px] w-full object-cover"
         style="background-image: url('.$Data["BackgroundImage"].'); background-size:100%; background-repeat:no-repeat;"
       >
         <div
-          class="main-container -mt-12 flex flex-col items-center justify-center py-20"
-        >
-          <img src="'.$Data["CategoryIcon"].'" class="mt-2 max-h-[70px] max-w-[100px] object-cover" alt="" />
+        class="main-container -mt-12 flex flex-col items-center justify-center py-20"
+        >';
+        $BrandId = $Data["BrandId"];
+        $Q = "SELECT * FROM brands where Id='$BrandId'";
+        $R = mysqli_query($Connection, $Q);
+        if($R){
+          while($D = mysqli_fetch_assoc($R)){
+       echo  '<a href="brandsProducts.php?brandId='.$D["Id"].'"><img src="'.$D["Image"].'" class="mt-2 max-h-[70px] max-w-[100px] object-cover" alt="" /></a>';
+
+          }
+        }
+        echo '
+
           <h1 class="heading mt-10 text-center text-white">'.$Data["Name"].'</h1>
           <p class="mx-auto mt-5 w-full text-white md:w-1/2">
            '.$Data["Description"].'
@@ -54,7 +64,7 @@ $ProductName;
 
 ?>
    
-    <div class="main-container lg-mt-96 -mt-80">
+    <div class="main-container lg-mt-96 -mt-80 relative z-10">
       <div
         class="mt-10 grid grid-cols-1 content-center py-4 gap-y-20 md:grid-cols-2 lg:grid-cols-4"
       >

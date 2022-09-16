@@ -191,13 +191,18 @@ class Admin{
     
     public function AddBrand(){
         $Name = $_POST["Name"];
+        $Description = $_POST["Description"];
         $IconName = $_FILES["Icon"]["name"];   
+        $BackgroundImageName = $_FILES["BackgroundImage"]["name"];   
         $TempIconName = $_FILES["Icon"]["tmp_name"];
+        $TempBackgroundImageName = $_FILES["BackgroundImage"]["tmp_name"];
         $SaveIcon = "images/".$IconName;
-        $Query = "INSERT INTO brands(Name  , Image )
-                            Values('$Name' ,   '$SaveIcon' )";
+        $SaveBackgroundImage = "images/".$BackgroundImageName;
+        $Query = "INSERT INTO brands(Name  , Image, BackgroundImage, Description )
+                            Values('$Name' ,   '$SaveIcon', '$SaveBackgroundImage', '$Description' )";
         $Result = mysqli_query($this->Connection , $Query);
         move_uploaded_file($TempIconName , $SaveIcon);
+        move_uploaded_file($TempBackgroundImageName , $SaveBackgroundImage);
         if($Result){
           
              header("location:AdminPanel/AllBrands.php?BrandAdded");

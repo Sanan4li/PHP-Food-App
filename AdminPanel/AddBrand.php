@@ -24,8 +24,16 @@
 				<h2>Add New Brand</h2>
 				<div class="form-row">
 					<label for="name">Brand Name</label>
-					<input type="text" name="Name" id="name" class="input-text" placeholder="Category Name" required >
+					<input type="text" name="Name" id="name" class="input-text" placeholder="Brand Name" required >
 					
+				</div>
+                <div class="form-row">
+					<label for="Description">Description</label>
+					<textarea rows="10" cols="76" class="input-text" name="Description" id="Description"></textarea>
+				</div>
+                <div class="form-row">
+						<label for="Image">Background Image</label>
+						<input type="file" accept="image/*" placeholder="Upload Image" class="input-text" name="BackgroundImage" id="BackgroundImage">
 				</div>
 				<div class="form-row">
 						<label for="Icon">Brand Icon</label>

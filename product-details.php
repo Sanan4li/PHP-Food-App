@@ -4,6 +4,7 @@ include "Footer.php";
 
 $ProductId = $_GET["ProductId"];
 $CategoryId = 0;
+$BrandId = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +57,32 @@ $CategoryId = 0;
         <span class="text-2xl font-semibold">SKU : </span> <span class="text-xl font-medium"> <?php echo $Data["SKU"]; ?> </span> </h3>
         <div class="mt-6">
           <p class="text-xl">Brand :</p>
-          <img class="mt-2 max-h-[70px] max-w-[100px] object-cover" src="<?php echo $Data["BrandIcon"]; ?>" alt="" />
-        </div>
+          <?php 
+          $Q = "SELECT * FROM category where Id='$CategoryId'";
+          $R = mysqli_query($Connection, $Q);
+         
+          if($R){
+            while($D = mysqli_fetch_assoc($R)){
+             
+              $BrandId = $D["BrandId"];
+            }
+          } 
+        ?>
+
+          <?php 
+          
+          $Q = "SELECT * FROM brands where Id='$BrandId'";
+          $R = mysqli_query($Connection, $Q);
+          
+          if($R){
+            while($D = mysqli_fetch_assoc($R)){
+              echo '
+              <a href="brandsProducts.php?brandId='.$D["Id"].'"><img class="mt-2 max-h-[70px] max-w-[100px] object-cover" src="'.$D["Image"].'" alt="" /></a>
+            ';
+            }
+          } 
+        ?>
+</div>
         <div class="mt-32">
           <h2 class="text-2xl font-semibold">Why Choose Product</h2>
           <div class="flex flex-col space-y-3">

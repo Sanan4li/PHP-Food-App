@@ -146,8 +146,22 @@ include "Footer.php";
             <h1 class="text-center text-2xl font-bold">Our Brands</h1>
           </div>
           <div class="mt-4 flex w-full items-center justify-center">
-            <img src="images/tentes.png" alt="" />
-            <img src="images/rock.png" alt="" />
+            <div class="flex space-x-2 md:space-x-5">
+            <?php 
+            $Query = "SELECT * FROM brands";
+            $Result = mysqli_query($Connection, $Query);
+            if($Result){
+              while($Data = mysqli_fetch_assoc($Result)){
+                echo '
+                <a href="brandsProducts.php?brandId='.$Data["Id"].'">
+                <img src="'.$Data["Image"].'" alt="" />
+                </a>
+                ';
+                
+              }
+            }
+            ?>
+            </div>
           </div>
         </div>
       </div>
