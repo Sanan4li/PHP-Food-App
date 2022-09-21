@@ -93,7 +93,7 @@ $ProductName;
              />
            </div>
            <div class="py-10">
-             <h2 class="text-xl font-semibold">'.$Data["Name"].'</h2>
+             <h2 class="text-xl font-semibold text-center">'.$Data["Name"].'</h2>
            </div>
          </div>
 

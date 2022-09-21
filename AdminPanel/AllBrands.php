@@ -98,6 +98,7 @@
                               <thead class="TableHead">
                               <tr>
                                   <th class=""> Name</th>
+                                  <th class=""> Description</th>
                                   <th class="numeric"> Action </th>
                               </tr>
                               </thead>
@@ -116,6 +117,7 @@
                                   
                                   
                                   <td class="numeric">'.$Data["Name"].'</td>
+                                  <td class="numeric">'.$Data["Description"].'</td>
                                   <td class="numeric">
                                        
                                        

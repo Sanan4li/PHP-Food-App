@@ -12,6 +12,17 @@ $ProductId =-1;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/tailwind.css" />
     <title>Products Details</title>
+    <style>
+      .max-h-500px{
+        max-height: 450px;
+      }
+      .max-h-220px{
+        max-height: 220px;
+      }
+      .max-w-33{
+        max-width: 33%;
+      }
+      </style>
   </head>
   <body class="w-full bg-background" id="body">
     <div class="w-full bg-white">
@@ -33,7 +44,7 @@ $ProductId =-1;
             <div class="overflow-hidden rounded-[32px]">
               <img
                 src="'.$Data["PrimaryImage"].'"
-                class="w-full overflow-hidden object-cover"
+                class="w-full overflow-hidden object-cover max-h-500px"
                 alt=""
               />
             </div>
@@ -57,8 +68,8 @@ $ProductId =-1;
             if($Result){
               while($Data = mysqli_fetch_assoc($Result)){
                 echo '
-                <div class="overflow-hidden rounded-[32px] object-cover">
-                  <img src="images/'.$Data["ImageLink"].'" alt="" />
+                <div class="overflow-hidden rounded-[32px] max-h-220  max-w-33">
+                  <img src="images/'.$Data["ImageLink"].'" class="object-cover h-full w-full " alt="" />
                 </div>
                 
                 

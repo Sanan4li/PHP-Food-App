@@ -29,7 +29,7 @@ include "Footer.php";
     </div>
     <div class="main-container -mt-96">
       <div
-        class=" mt-10 grid grid-cols-1  md:space-y-0 py-4 md:grid-cols-2 lg:grid-cols-3">
+        class=" mt-10 grid grid-cols-2  md:space-y-0 py-4 md:grid-cols-2 lg:grid-cols-3">
         <?php
         $Query = "SELECT * FROM category";
         $Result = mysqli_query($Connection, $Query);

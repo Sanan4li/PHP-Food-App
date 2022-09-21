@@ -25,7 +25,7 @@ if(isset($_GET["brandId"])){
       </div>
     </div>
     <?php
-    echo "this is brand Id".$BrandId;
+    // echo "this is brand Id".$BrandId;
     $Query = "SELECT * FROM brands where Id='$BrandId'";
     $Result = mysqli_query( $Connection, $Query);
     

@@ -290,19 +290,19 @@ class Admin{
         $ReasonThree = $_POST["ReasonThree"];
         $ImageName = $_FILES["PrimaryImage"]["name"];
         $SecondaryImageName = $_FILES["SecondaryImage"]["name"];
-        $BrandIcon = $_FILES["BrandIcon"]["name"];
+        // $BrandIcon = $_FILES["BrandIcon"]["name"];
         $TempImageName = $_FILES["PrimaryImage"]["tmp_name"];
         $TempBrandIcon = $_FILES["BrandIcon"]["tmp_name"];
         $TempImageNameSecondary = $_FILES["SecondaryImage"]["tmp_name"];
         $SaveImage = "images/".$ImageName;
         $SaveImageSecondary = "images/".$SecondaryImageName; 
-        $SaveImageBrand = "images/".$BrandIcon; 
-        $Query = "INSERT INTO products(Name  , CategoryId, SKU, CasesPerPallet, CasesPerContainer, Pack, ShelfLife, PrimaryDescription, SecondaryDescription, ReasonOne, ReasonTwo, ReasonThree, PrimaryImage, SecondaryImage , BrandIcon  )
-                        Values('$Name' , '$Category', '$SKU' , '$CasesPerPallet', '$CasesPerContainer', '$Pack','$ShelfLife', '$PrimaryDescription', '$SecondaryDescription', '$ReasonOne','$ReasonTwo','$ReasonThree',  '$SaveImage', '$SaveImageSecondary', '$SaveImageBrand'  )";
+        // $SaveImageBrand = "images/".$BrandIcon; 
+        $Query = "INSERT INTO products(Name  , CategoryId, SKU, CasesPerPallet, CasesPerContainer, Pack, ShelfLife, PrimaryDescription, SecondaryDescription, ReasonOne, ReasonTwo, ReasonThree, PrimaryImage, SecondaryImage   )
+                        Values('$Name' , '$Category', '$SKU' , '$CasesPerPallet', '$CasesPerContainer', '$Pack','$ShelfLife', '$PrimaryDescription', '$SecondaryDescription', '$ReasonOne','$ReasonTwo','$ReasonThree',  '$SaveImage', '$SaveImageSecondary'  )";
         $Result = mysqli_query($this->Connection , $Query);
         move_uploaded_file($TempImageName , $SaveImage);
         move_uploaded_file($TempImageNameSecondary , $SaveImageSecondary);
-        move_uploaded_file($TempBrandIcon , $SaveImageBrand);
+        // move_uploaded_file($TempBrandIcon , $SaveImageBrand);
         if($Result){
             
               header("location:AdminPanel/AllProducts.php?ProductAdded");

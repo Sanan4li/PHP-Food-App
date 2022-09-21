@@ -108,10 +108,7 @@
 					<label for="SecondaryImage">Secondary Image</label>
 					<input type="file" accept="image/*" placeholder="Upload Secondary Image" name="SecondaryImage" class="input-text" id="SecondaryImage">
 				</div>
-				<div class="form-row">
-					<label for="BrandIcon">Brand Icon</label>
-					<input type="file" accept="image/*" placeholder="Upload Secondary Image" name="BrandIcon" class="input-text" id="BrandIcon">
-				</div>
+				
 			
 				<div class="form-row-last">
 					<input type="submit" name="AddProduct" class="register" value="Add Product" id="register">
