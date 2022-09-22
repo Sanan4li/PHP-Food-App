@@ -16,6 +16,7 @@ if(isset($_GET["brandId"])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/mytailwind.css" />
     <title>Products</title>
   </head>
   <body class="w-full bg-background" id="body">
@@ -92,7 +93,7 @@ if(isset($_GET["brandId"])){
             echo '
             </div>
             <div class="py-4">
-              <h2 class="text-xl font-semibold">'.$Data["Name"].'</h2>
+              <h2 class="text-xl font-semibold ml-20p">'.$Data["Name"].'</h2>
             </div>
           </div>
 

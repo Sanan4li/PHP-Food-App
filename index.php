@@ -10,6 +10,7 @@ include "Footer.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/mytailwind.css" />
     <title>Home</title>
   </head>
   <body class="w-full bg-background" id="body">
@@ -61,6 +62,22 @@ include "Footer.php";
       </h1>
       <div class="relative m-auto max-w-7xl px-10 py-12">
         <div class="fade mySlides relative hidden px-5">
+        <div
+                class="absolute bottom-24 left-24 w-full rounded-2xl bg-gray-800/30 p-4 text-white md:w-2/5"
+              >
+                <h2 class="text-center font-semibold md:text-2xl md:font-bold">
+                  Legumes & Vegetables
+                </h2>
+                <p class="p-3">
+                  Our legumes and vegetable range are packed with essential
+                  nutrients and are a vital source of minerals and vitamins (such as
+                  magnesium, vitamin C and folate), dietary fibre and a range of
+                  phytochemicals.
+                </p>
+                <div class="mt-3">
+                  <a href="#" class="button">Learn More</a>
+                </div>
+              </div>
           <img src="images/slider1.png" class="w-full" />
           <div class="absolute -top-20 right-40">
             <img src="images/ChoppedTomatoes.png" class="w-[200px]" alt="" />
@@ -68,22 +85,60 @@ include "Footer.php";
         </div>
 
         <div class="fade mySlides relative hidden px-5">
+        <div
+                class="absolute bottom-24 left-24 w-full rounded-2xl bg-gray-800/30 p-4 text-white md:w-2/5"
+              >
+                <h2 class="text-center font-semibold md:text-2xl md:font-bold">
+                Non - Alcholic Beverage 
+                </h2>
+                <p class="p-3">
+                  Our legumes and vegetable range are packed with essential
+                  nutrients and are a vital source of minerals and vitamins (such as
+                  magnesium, vitamin C and folate), dietary fibre and a range of
+                  phytochemicals.
+                </p>
+                <div class="mt-3">
+                  <a href="#" class="button">Learn More</a>
+                </div>
+              </div>
           <img src="images/slider2.png" class="w-full" />
           <div class="absolute -top-20 right-40">
-            <img src="images/ChoppedTomatoes.png" class="w-[200px]" alt="" />
+            <img src="images/gin2.png" class="w-[200px]" alt="" />
           </div>
         </div>
 
         <div class="fade mySlides relative hidden px-5">
+        <div
+                class="absolute bottom-24 left-24 w-full rounded-2xl bg-gray-800/30 p-4 text-white md:w-2/5"
+              >
+                <h2 class="text-center font-semibold md:text-2xl md:font-bold">
+                Cocktails
+                </h2>
+                <p class="p-3">
+                  Our legumes and vegetable range are packed with essential
+                  nutrients and are a vital source of minerals and vitamins (such as
+                  magnesium, vitamin C and folate), dietary fibre and a range of
+                  phytochemicals.
+                </p>
+                <div class="mt-3">
+                  <a href="#" class="button">Learn More</a>
+                </div>
+              </div>
           <img src="images/slider3.png" class="w-full" />
           <div class="absolute -top-20 right-40">
-            <img src="images/ChoppedTomatoes.png" class="w-[200px]" alt="" />
+            <img src="images/ginger beer can 2.png" class="w-[200px]" alt="" />
           </div>
         </div>
+        <!-- <div class="fade mySlides relative hidden px-5">
+          <img src="images/slider2.png" class="w-full" />
+          <div class="absolute -top-20 right-40">
+            <img src="images/gin2.png" class="w-[200px]" alt="" />
+          </div>
+        </div> -->
 
         <a
           class="absolute top-1/2 mx-3 -mt-6 w-auto cursor-pointer rounded-full bg-white/80 p-6 font-bold text-black"
-          onclick="plusSlides(-1)"
+          onclick="plusSlides(-1)" style="padding:20px"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -101,7 +156,7 @@ include "Footer.php";
         </a>
         <a
           class="absolute top-1/2 right-20 mx-3 -mt-6 w-auto cursor-pointer rounded-full bg-white/80 p-6 font-bold text-black"
-          onclick="plusSlides(1)"
+          onclick="plusSlides(1)" style="padding:20px"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -206,11 +261,11 @@ include "Footer.php";
             while($Data = mysqli_fetch_assoc($Result)){
               echo '
              <a href="recipe-details.php?RecipeId='.$Data["Id"].'">
-             <div class="w-full rounded-[32px] bg-white p-2 md:min-w-[300px]">
+             <div class="w-full rounded-[32px] bg-white p-2 md:min-w-[300px] max-h-300p">
              <div>
                <img
                  src="'.$Data["PrimaryImage"].'"
-                 class="h-auto w-full max-w-full rounded-3xl object-cover md:h-[230px]"
+                 class=" w-full max-w-full h-full rounded-3xl object-cover md:h-[230px]"
                  alt=""
                />
              </div>

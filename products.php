@@ -15,7 +15,9 @@ $ProductName;
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/mytailwind.css" />
     <title>Products</title>
+    
   </head>
   <body class="w-full bg-background" id="body">
     <div class="w-full bg-white relative z-10">
@@ -92,8 +94,8 @@ $ProductName;
                alt=""
              />
            </div>
-           <div class="py-10">
-             <h2 class="text-xl font-semibold text-center">'.$Data["Name"].'</h2>
+           <div class="py-10 flex justify-center items-center">
+             <h2 class="text-xl ml-20p font-semibold text-center bg-cu">'.$Data["Name"].'</h2>
            </div>
          </div>
 
