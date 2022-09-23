@@ -64,7 +64,7 @@ $ProductId = $_GET["ProductId"];
                />
              </div>
              <div class="p-3">
-               <h2 class="text-center font-semibold md:text-2xl md:font-bold recipe-heading">'.$Data["Name"].'</h2>
+               <h2 class="text-center font-semibold md:text-2xl md:font-bold recipe-heading" style="max-width:150px">'.$Data["Name"].'</h2>
                <div class="hidden sm:block">
                <p class="mt-4 text-center recipe-description">
                '.$Data["Description"].'

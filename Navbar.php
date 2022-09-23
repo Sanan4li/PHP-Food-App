@@ -12,7 +12,7 @@ function displayNavbar($About, $Products, $Services, $Contact, $Recipes){
     <div class="flex items-center justify-between">
     <div>
       <a
-        class="text-2xl font-bold text-gray-800 hover:text-gray-700 dark:text-white lg:text-3xl"
+        class="text-2xl font-bold text-gray-800 hover:text-gray-700  lg:text-3xl"
         href="index.php"
       >
         <img
@@ -41,15 +41,16 @@ function displayNavbar($About, $Products, $Services, $Contact, $Recipes){
 
       <div
       id="mobileMenu"
-      class="absolute top-0 -left-[2000px] h-full w-full bg-gray-500/30 transition duration-1000"
+      style="height:1000px"
+      class="absolute  top-0 -left-[2000px] h-full w-full bg-gray-500/30 transition duration-1000"
     >
       <div
-        class="h-full w-9/12 items-center bg-white px-8 py-4 lg:flex"
+        class="h-full w-9/12 items-center bg-white relative px-8 py-4 lg:flex" style="z-index:9999"
       >
         <div class="flex items-center justify-between">
           <p>
             <a
-              class="text-2xl font-bold text-gray-800 hover:text-gray-700 dark:text-white lg:text-3xl"
+              class="text-2xl font-bold text-gray-800 hover:text-gray-700  lg:text-3xl"
               href="index.php"
             >
               <img src="images/logo.png" width="100" />

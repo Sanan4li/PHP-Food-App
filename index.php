@@ -261,11 +261,11 @@ include "Footer.php";
             while($Data = mysqli_fetch_assoc($Result)){
               echo '
              <a href="recipe-details.php?RecipeId='.$Data["Id"].'">
-             <div class="w-full rounded-[32px] bg-white p-2 md:min-w-[300px] max-h-300p">
+             <div class="w-full rounded-[32px] bg-white p-2 md:min-w-[300px]">
              <div>
                <img
                  src="'.$Data["PrimaryImage"].'"
-                 class=" w-full max-w-full h-full rounded-3xl object-cover md:h-[230px]"
+                 class=" w-full max-w-full h-full max-h-250p rounded-3xl object-cover md:h-[230px]"
                  alt=""
                />
              </div>
