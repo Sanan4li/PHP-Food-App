@@ -21,10 +21,10 @@ include "Footer.php";
     </div>
     <div class="w-full bg-white">
       <div
-        class="mx-auto h-[700px] max-w-7xl object-cover px-6"
-        style="background-image: url('images/header-bg.png')"
+        class="mx-auto  max-w-7xl object-cover px-6 headerBackground"
+       
       >
-        <div class="container mx-auto h-full max-h-[700px] px-6">
+        <div class="container mx-auto h-full max-h-[700px] md:px-6">
           <div class="h-full items-center lg:flex">
             <div class="flex h-full w-full flex-col justify-center">
               <div class="w-full md:w-auto">
@@ -56,7 +56,7 @@ include "Footer.php";
     </div>
     <div class="relative overflow-hidden">
       <div class="-z-10 py-28  bg-white">
-    <div class="main-container">
+    <div class="main-container hidden md:block">
       <h1 class="heading w-full px-10 md:w-1/2">
         We Offer a Wide Range of Products and Commodities
       </h1>
@@ -69,10 +69,7 @@ include "Footer.php";
                   Legumes & Vegetables
                 </h2>
                 <p class="p-3">
-                  Our legumes and vegetable range are packed with essential
-                  nutrients and are a vital source of minerals and vitamins (such as
-                  magnesium, vitamin C and folate), dietary fibre and a range of
-                  phytochemicals.
+                Our legumes and vegetable range are packed with essential nutrients and are a vital source of minerals and vitamins (such as magnesium, vitamin C and folate), dietary fibre and a range of phytochemicals.
                 </p>
                 <div class="mt-3">
                   <a href="#" class="button">Learn More</a>
@@ -92,10 +89,7 @@ include "Footer.php";
                 Non - Alcholic Beverage 
                 </h2>
                 <p class="p-3">
-                  Our legumes and vegetable range are packed with essential
-                  nutrients and are a vital source of minerals and vitamins (such as
-                  magnesium, vitamin C and folate), dietary fibre and a range of
-                  phytochemicals.
+                Our non-alcoholic beverages are a source of essential vitamins and minerals that do not compromise on taste
                 </p>
                 <div class="mt-3">
                   <a href="#" class="button">Learn More</a>
@@ -103,7 +97,7 @@ include "Footer.php";
               </div>
           <img src="images/slider2.png" class="w-full" />
           <div class="absolute -top-20 right-40">
-            <img src="images/gin2.png" class="w-[200px]" alt="" />
+            <img src="images/gin2.png" class="" style="width:250px" alt="" />
           </div>
         </div>
 
@@ -125,8 +119,8 @@ include "Footer.php";
                 </div>
               </div>
           <img src="images/slider3.png" class="w-full" />
-          <div class="absolute -top-20 right-40">
-            <img src="images/ginger beer can 2.png" class="w-[200px]" alt="" />
+          <div class="absolute  right-40" style="top: -120px">
+            <img src="images/ginger beer can 2.png" class="" style="width:300px; " alt="" />
           </div>
         </div>
         <!-- <div class="fade mySlides relative hidden px-5">
@@ -261,11 +255,11 @@ include "Footer.php";
             while($Data = mysqli_fetch_assoc($Result)){
               echo '
              <a href="recipe-details.php?RecipeId='.$Data["Id"].'">
-             <div class="w-full rounded-[32px] bg-white p-2 md:min-w-[300px] max-h-300p">
+             <div class="w-full rounded-[32px] bg-white p-2 md:min-w-[300px]">
              <div>
                <img
                  src="'.$Data["PrimaryImage"].'"
-                 class=" w-full max-w-full h-full rounded-3xl object-cover md:h-[230px]"
+                 class=" w-full max-w-full h-full max-h-250p rounded-3xl object-cover md:h-[230px]"
                  alt=""
                />
              </div>

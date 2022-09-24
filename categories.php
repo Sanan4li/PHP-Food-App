@@ -61,7 +61,7 @@ include "Footer.php";
             echo '
             </div>
             <div class="py-4">
-              <h2 class="text-xl font-semibold">'.$Data["Name"].'</h2>
+              <h2 class="text-xl font-semibold" style="max-width:150px">'.$Data["Name"].'</h2>
             </div>
           </div>
 

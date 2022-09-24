@@ -166,7 +166,7 @@ $BrandId = 0;
         </h1>
         <div class="mt-10">
           <div
-            class="mt-10 grid grid-cols-1 py-4 md:grid-cols-2 md:space-y-0 lg:grid-cols-4"
+            class="mt-10 grid grid-cols-1 space-y-10 sm:grid-cols-2 py-4 md:grid-cols-2 md:space-y-0 lg:grid-cols-4"
           >
           <?php 
             $Query = "SELECT * FROM products where CategoryId = '$CategoryId' LIMIT  5";

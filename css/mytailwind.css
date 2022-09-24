@@ -4,3 +4,26 @@
 .max-h-300p {
   max-height: 300px;
 }
+.max-h-250p {
+  max-height: 250px;
+}
+
+.headerBackground {
+  background: url(../images/mobile2.jpg);
+  background-size: cover;
+  object-fit: cover;
+  height: 500px;
+}
+
+/* @media screen and (min-width: 769px) {
+ .headerBackground {
+   background: url(path_to_tablet_image);
+ }
+} */
+
+@media screen and (min-width: 700px) {
+  .headerBackground {
+    height: 700px;
+    background: url(../images/header-bg.png);
+  }
+}

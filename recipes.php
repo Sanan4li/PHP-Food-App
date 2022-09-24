@@ -114,9 +114,9 @@ include "Footer.php";
 </form>
        
       </div>
-      <div class="w-full md:w-3/4">
+      <div class="w-full md:w-3/4 mt-4 md:mt-0">
         <div
-          class="grid grid-cols-1 gap-2 gap-y-4 sm:grid-cols-2 lg:grid-cols-3"
+          class="grid grid-cols-2 gap-2 gap-y-4 sm:grid-cols-2 lg:grid-cols-3"
         >
         <?php
         $sql = [];
@@ -149,12 +149,12 @@ include "Footer.php";
               <a href="recipe-details.php?RecipeId='.$Data["Id"].'">
               <div class="w-full min-w-[300px] rounded-[32px] bg-white p-2">
               <div>
-                <img
-                  src="'.$Data["PrimaryImage"].'"
-                  class="h-[230px] w-full max-w-full rounded-3xl object-cover"
-                  alt=""
-                />
-              </div>
+              <img
+                src="'.$Data["PrimaryImage"].'"
+                class=" w-full max-w-full h-full max-h-250p rounded-3xl object-cover md:h-[230px]"
+                alt=""
+              />
+            </div>
               <div class="p-3">
                 <h2 class="text-center text-2xl font-bold recipe-heading">'.$Data["Name"].'</h2>
                 <p class="mt-4 text-center recipe-description">

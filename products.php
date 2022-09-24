@@ -35,7 +35,8 @@ $ProductName;
         echo '
         <div
         class="relative  h-[660px] w-full object-cover"
-        style="background-image: url('.$Data["BackgroundImage"].'); background-size:100%; background-repeat:no-repeat;"
+        
+        style="background-image: url('.$Data["BackgroundImage"].'); background-size:100% 70%; object-fit:cover;   background-repeat:no-repeat; "
       >
         <div
         class="main-container -mt-12 flex flex-col items-center justify-center py-20"
@@ -52,7 +53,7 @@ $ProductName;
         echo '
 
           <h1 class="heading mt-10 text-center text-white">'.$Data["Name"].'</h1>
-          <p class="mx-auto mt-5 w-full text-white md:w-1/2">
+          <p class="mx-auto mt-5 w-full text-white md:w-1/2 text-center">
            '.$Data["Description"].'
           </p>
         </div>
@@ -68,7 +69,7 @@ $ProductName;
    
     <div class="main-container lg-mt-96 -mt-80 relative z-10">
       <div
-        class="mt-10 grid grid-cols-2 content-center py-4 gap-y-20 md:grid-cols-2 lg:grid-cols-4"
+        class="mt-10 grid grid-cols-1 sm:grid-cols-2 space-y-10 md:space-y-0 content-center py-4 gap-y-20 md:grid-cols-2 lg:grid-cols-4"
       >
       <?php
       
@@ -95,7 +96,7 @@ $ProductName;
              />
            </div>
            <div class="py-10 flex justify-center items-center">
-             <h2 class="text-xl ml-20p font-semibold text-center bg-cu">'.$Data["Name"].'</h2>
+             <h2 class="text-xl ml-20p font-semibold text-center bg-cu" style="max-width:150px">'.$Data["Name"].'</h2>
            </div>
          </div>
 
@@ -123,7 +124,7 @@ $ProductName;
              <div>
                <img
                  src="'.$Data["PrimaryImage"].'"
-                 class="h-[230px] w-full max-w-full rounded-3xl object-cover"
+                 class=" w-full max-w-full h-full max-h-250p rounded-3xl object-cover md:h-[230px]"
                  alt=""
                />
              </div>

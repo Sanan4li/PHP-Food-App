@@ -121,13 +121,14 @@ include "Footer.php";
       </div>
     </div>
     <div
-      class="absolute hidden h-full w-full items-center justify-center top-0 overflow-y-auto bg-gray-600/50"
+      class="absolute hidden h-full w-full px-4 items-center justify-center top-0 overflow-y-auto bg-gray-600/50"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
       id="serviceSection"
+      style="padding-top:50px"
     >
-      <div class="flex w-1/2 flex-col rounded-2xl bg-white p-10">
+      <div class="flex w-full md:w-1/2 flex-col rounded-2xl bg-white p-10">
         <div class="my-3 flex w-full items-center justify-between">
           <h1 class="text-2xl font-bold" id="serviceHeading">Supermarket Chain OEM Services</h1>
           <div class="cursor-pointer" id="closeButton">
