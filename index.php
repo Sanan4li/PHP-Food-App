@@ -54,6 +54,81 @@ include "Footer.php";
         </div>
       </div>
     </div>
+
+
+<!-- 
+    <div class="relative">
+  <a
+          class="absolute top-1/2 mx-3 -left-5 -mt-6 w-auto cursor-pointer rounded-full bg-white/80 p-2 font-bold text-black"
+          onclick="plusSlides(-1)" 
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </a>
+        <a
+          class="absolute top-1/2 -right-5 mx-3 -mt-6 w-auto cursor-pointer rounded-full bg-white/80 p-2 font-bold text-black"
+          onclick="plusSlides(1)" 
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </a>
+  <img src="http://placekitten.com/g/400/700" alt="">
+  <div class="absolute -top-10 w-full  flex justify-center">
+  <img class="" src="https://placekitten.com/g/200/200">
+  </div>
+  <div class="px-5 flex justify-center items-center absolute bottom-5">
+    <div class="bg-gray-500/50 p-5 text-white rounded-3xl">
+      <p>
+             Neque, temporibus eveniet. Deleniti, suscipit. Libero maiores doloremque, praesentium, hic consequatur dolorum fuga minus iure dolor dignissimos dicta commodi reprehenderit accusamus numquam.
+      </p>
+      <a href="#" class="bg-blue-500 px-5 py-2 rounded-md mt-4 block w-fit text-white">
+        Learn More
+      </a>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="relative overflow-hidden">
       <div class="-z-10 py-28  bg-white">
     <div class="main-container hidden md:block">
